@@ -105,6 +105,7 @@ def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float,
     
     #print("sequence: ", sequence)
     projection_nr = 0
+    
     for angle_index, (delta_x, delta_y) in enumerate(sequence):
         
         
