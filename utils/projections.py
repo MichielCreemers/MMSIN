@@ -104,7 +104,7 @@ def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float,
     current_y_angle = 0   
     
     #print("sequence: ", sequence)
-    
+    projection_nr = 0
     for angle_index, (delta_x, delta_y) in enumerate(sequence):
         
         
@@ -119,18 +119,20 @@ def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float,
             current_y_angle -= 90 * 5.82
         current_y_angle -= delta_y
 
-        #print(f"Current x angle: {current_x_angle}, Current y angle: {current_y_angle}")
+        print(f"Current x angle: {current_x_angle}, Current y angle: {current_y_angle}")
 
         
         ctrl.rotate(current_x_angle, current_y_angle)
         vis.poll_events()
         vis.update_renderer()
-        projection = vis.capture_screen_float_buffer(True) # Image stored as floating point array with values between 0 and 1
-        projection = (np.asarray(projection) * 255).astype(np.uint8) # Cast to 8bit format 
-        projection = Image.fromarray(projection)
-        projection = cv.cvtColor(np.asarray(projection), cv.COLOR_BGR2RGB) # OpenCV uses BGR format instead of RGB
-        projection = background_crop(projection)
-        cv.imwrite(os.path.join(image_path, f"projection_{angle_index}.png"), projection)
+        if(round(current_y_angle,1) != -1047.6 and round(current_y_angle,1) != -2095.2):
+            projection = vis.capture_screen_float_buffer(True) # Image stored as floating point array with values between 0 and 1
+            projection = (np.asarray(projection) * 255).astype(np.uint8) # Cast to 8bit format 
+            projection = Image.fromarray(projection)
+            projection = cv.cvtColor(np.asarray(projection), cv.COLOR_BGR2RGB) # OpenCV uses BGR format instead of RGB
+            projection = background_crop(projection)
+            cv.imwrite(os.path.join(image_path, f"projection_{projection_nr}.png"), projection)
+            projection_nr += 1
     
     vis.destroy_window()
             
