@@ -13,7 +13,7 @@ import torch.nn as nn
 import torch.backends.cudnn as cudnn
 from torchvision import transforms
 
-import utils.loss
+from utils.loss import L2RankLoss
 
 def set_random_seed(seed=2024):
     """This function sets the seed for random number generation to ensure reproducibility of the results.
@@ -166,7 +166,7 @@ if __name__=='__main__':
 
     #define the loss function
     if loss == 'l2rank':
-        criterion : L2RankLoss().to(device)
+        criterion = L2RankLoss().to(device)
         print('Using l2rank loss')
 
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay= decay_rate)
