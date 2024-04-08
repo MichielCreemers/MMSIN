@@ -2,6 +2,7 @@ import open3d as o3d
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def load_point_cloud(file_path):
     """Just a simple function to load a point cloud from a file.
 
