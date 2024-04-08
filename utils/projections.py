@@ -81,7 +81,7 @@ def calculate_rotation_strategy(number_y: int, number_x: int, predefined_strateg
             sequence.append((0, y_angle_step * distance_1_degree))
         return (sequence, x_angle_step, y_angle_step)
 
-def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float, float], Nx, Ny, visualise=False, y_start_from_top=True) -> None:
+def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float, float], Nx, Ny, ps, visualise=False, y_start_from_top=True) -> None:
     """_summary_
 
     Args:
@@ -97,7 +97,7 @@ def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float,
     vis.add_geometry(pcd)
     opt = vis.get_render_option()
     opt.light_on = False            # In this case, the visualiser added a light source which is not wanted.
-    opt.point_size = 2
+    opt.point_size = ps
     
     ctrl = vis.get_view_control()
     current_x_angle = 0
@@ -140,7 +140,7 @@ def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float,
     
     return 1
         
-def make_projections(pc_path: str, image_path: str, x_projections: int, y_projections: int, predefined_strategy='default', visualise=False):
+def make_projections(pc_path: str, image_path: str, x_projections: int, y_projections: int, point_size: int, predefined_strategy='default', visualise=False):
     """_summary_
 
     Args:
@@ -162,7 +162,7 @@ def make_projections(pc_path: str, image_path: str, x_projections: int, y_projec
     
     # Actual rotation and projection
     start = time.time()
-    rotate_and_capture_images(pcd, image_path, strategy, visualise=visualise, Nx=x_projections, Ny=y_projections)
+    rotate_and_capture_images(pcd, image_path, strategy, visualise=visualise, Nx=x_projections, Ny=y_projections , ps=point_size)
     end = time.time()
     
     print(f"Projections are completed in {end-start} seconds.")  
@@ -181,7 +181,8 @@ if __name__ == '__main__':
     parser.add_argument('--image_path', type=str, help='Full path to the directory where the images will be saved.')
     parser.add_argument('--x_projections', type=int, help='The number of images to be taken around the x-axis.')
     parser.add_argument('--y_projections', type=int, help='The number of images to be taken around the y-axis.')
+    parser.add_argument('--point_size', type=int, help='The size of the point in the projection')
     args = parser.parse_args()
-    make_projections(args.pc_path, args.image_path, args.x_projections, args.y_projections)
+    make_projections(args.pc_path, args.image_path, args.x_projections, args.y_projections, args.point_size)
     print("***********************************************************")
    
