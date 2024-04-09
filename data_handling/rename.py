@@ -7,3 +7,5 @@ df['name'] = df['name'].str.rsplit('/', n=1).str[-1]
 
 #write to csv
 df.to_csv('WPC/WPC_NSS.csv', index=False)
+
+     

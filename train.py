@@ -14,6 +14,7 @@ import torch.backends.cudnn as cudnn
 from torchvision import transforms
 
 from utils.loss import L2RankLoss
+from models.backbones import resnet50
 
 def set_random_seed(seed=2024):
     """This function sets the seed for random number generation to ensure reproducibility of the results.
