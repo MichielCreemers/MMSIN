@@ -70,7 +70,7 @@ class MultiModalDataset(Dataset):
     def __len__(self):
         return self.length
     
-    def __check_dataset(self, index: int):
+    def _check_dataset(self, index: int):
         """Returns the name of the dataset a given datapoint belongs to.
         --> Make sure the list of dirs used when making the class are all relative to eachother.
 
@@ -89,7 +89,7 @@ class MultiModalDataset(Dataset):
     def __getitem__(self, index):
         
         # First check what dataset the datapoint with the corresponding index is from
-        dataset, ds_idx = self.__check_dataset(index)
+        dataset, ds_idx = self._check_dataset(index)
         
         # Projections for current index
         image_name = self.pointcloud_names.iloc[index, 0]
