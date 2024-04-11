@@ -26,7 +26,7 @@ class CMA_fusion(nn.Module):
         nss_features = self.linear2(nss_features)
         nss_features = self.nss_bn(nss_features)
         
-        # Add singleton dimension 
+        # Add singleton dimension -> MultiheadAttention requires [seq_len, batch_size, feature_size] because batch_first False by default in MultiHeadAttention !!!
         image_features = image_features.unsqueeze(0)  # [batch_size, 1024] -> [1, batch_size, 1024]
         nss_features = nss_features.unsqueeze(0)  # ""
         
