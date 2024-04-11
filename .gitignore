@@ -7,3 +7,4 @@
 */projections_size_4
 */projections_size_8
 *.zip
+*__pycache__
