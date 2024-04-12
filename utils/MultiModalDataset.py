@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
-import random
 from torchvision import transforms
 from torch.utils import data
 from PIL import Image
@@ -15,7 +14,7 @@ class MultiModalDataset(Dataset):
     NJAAA
     """
     
-    def __init__(self, projections_dirs: list[str], mos_data_paths: list[str], number_of_projections, transform, nss_features_dir=[], pcl_dirs=[], datasets=["sjtu"], model="nss1", crop_size=224, train=True):
+    def __init__(self, projections_dirs: list[str], mos_data_paths: list[str], number_of_projections, nss_features_dir=[], pcl_dirs=[], datasets=["sjtu"], model="nss1", crop_size=224):
         
         """
         NJAAA
@@ -62,10 +61,12 @@ class MultiModalDataset(Dataset):
         self.projections_dirs = projections_dirs
         self.datasets = datasets    
         self.number_of_projections = number_of_projections
-        self.transform = transform
+        self.transform = None
         self.crop_size = crop_size  # Standard resnet50, ... etc expects at minimum 224x224 inputs 
-        self.train = train
         self.length = len(self.pointcloud_names)
+    
+    def set_transform(self, transform):
+        self.transform = transform
         
     def __len__(self):
         return self.length
