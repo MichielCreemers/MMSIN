@@ -4,6 +4,7 @@ import time
 
 import json
 import random
+import copy
 import scipy
 from scipy import stats
 from scipy.optimize import curve_fit
@@ -85,6 +86,9 @@ def parse_args():
     return args
 
 
+def update_transform(dataset, transform):
+    dataset.set_transform(transform)
+
 if __name__ == "__main__":
     print('*****************************************************************************')
     args = parse_args()
@@ -138,26 +142,41 @@ if __name__ == "__main__":
     # Split the dataset into training and tens sets (80% train & 20% test)
     train_indices, test_indices = train_test_split(range(len(complete_dataset)), test_size=0.2, random_state=42)
     
-    # Create subset for training and testing
     train_dataset = Subset(complete_dataset, train_indices)
     test_dataset = Subset(complete_dataset, test_indices)
     
     # Start kfold cross validation loop
     kf = KFold(n_splits=k_fold_num, shuffle=True, random_state=42)
-    for fold, (train_ids, val_ids) in enumerate(kf.split(range(len(complete_dataset)))):
+    for fold, (train_ids, val_ids) in enumerate(kf.split(train_dataset.indices)):
         print(f"Starting fold {fold+1}/{k_fold_num}")
         
-        # Subset training dataset in training and vailidation
-        train_subset = Subset(train_dataset, train_ids)
-        val_subset = Subset(train_dataset, val_ids)
+        # Create copies
+        train_dataset_clone = copy.deepcopy(complete_dataset)
+        val_dataset_clone = copy.deepcopy(complete_dataset)
         
-        # Initialize data loaders for current fold
+        train_dataset_clone.set_transform(transform=transformations_train)
+        val_dataset_clone.set_transform(transform=transformations_test)
+        
+        train_subset = Subset(train_dataset_clone, train_ids)
+        val_subset = Subset(val_dataset_clone, val_ids)
+        
+        # Initialize data loaders for current fold ---- IN OUT LOOP?????? __________!_!_____________!_!_!_______________!_!____________
         train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=8)
         val_loader = DataLoader(val_subset, batch_size=batch_size, shuffle=False, num_workers=8)
         
-        # Initialize model
+        # Initialize model, criterion, optimizer
         if args.model == "nss1":
             model = MM_NSSInet()
             model = model.to(device)
         
-        if args.loss = "l2rank"
+        if args.loss == "l2rank":
+            criterion = L2RankLoss().to(device)
+            
+        optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=decay_rate)
+        print(f"Using Adam optimize with initial learning rate of {learning_rate}")
+        #let the optimizer adjust its learning rate every 8 epochs
+        scheduler = torch.optim.lr_scheduler.StepLR(optimizer=optimizer, step_size=8, gamma=0.9)
+        
+        print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+        print("starting the training")
+        print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
