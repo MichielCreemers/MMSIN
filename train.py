@@ -109,7 +109,9 @@ if __name__ == "__main__":
     number_of_projections = args.number_of_projections
     nss_features_paths = args.nss_features_paths
     datasets = args.datasets
-    
+
+    best_all = np.zeros([k_fold_num, 4])
+
     print("The dataset(s) used is/are: ", datasets)
     
     # GPU readiness
@@ -180,3 +182,90 @@ if __name__ == "__main__":
         print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
         print("starting the training")
         print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+        best_test_criterion = -1 
+        best = np.zeros
+
+        for epoch in range(num_epochs):
+
+            n_train = len(train_subset)
+            n_val  = len(val_subset)
+
+            model.train()
+
+            start = time.time()
+            batch_losses = []
+            batch_losses_each_disp = []
+            
+            x_output = np.zeros(n_train)
+            #!!!!!!!!!!!!!!!!!!!!!!!!!!
+            x_val  = np.zeros(n_val)
+
+            for i, (imgs, nss, mos) in enumerate(train_loader):
+                imgs = imgs.to(device)
+                nss  = nss[:,np.newaxis]
+                nss  = nss.to(device)
+                #!!!!!!!!
+                mos  = mos[:,np.newaxis]
+                #!!!!!!!!
+                mos.to(device)
+                mos_output = model(imgs, nss)
+
+                loss = criterion(mos_output, mos)
+                batch_losses.append(loss.item())
+                batch_losses_each_disp.append(loss.item())
+
+                optimizer.zero_grad()
+                torch.autograd.backward(loss)
+                optimizer.step()
+
+            avg_loss = sum(batch_losses) / (len(train_subset) // batch_size)
+            print('Epoch %d averaged training loss: %.4f' % (epoch + 1, avg_loss))
+
+            scheduler.step()
+            lr_current = scheduler.get_last_lr()
+            print('The current learning rate is {:.06f}'.format(lr_current[0]))
+
+            end = time.time()
+            print('Epoch %d training time cost: %.4f seconds' % (epoch + 1, end-start))
+
+            model.eval()
+            y_output = np.zeros(n_val)
+            y_val   = np.zeros(n_val)
+
+            with torch.no_grad():
+                for i, (imgs, nss, mos) in enumerate(val_loader):
+                    imgs.to(device)
+                    nss = nss[:, np.newaxis]
+                    nss.to(device)
+                    y_val[i] = mos.item()
+                    outputs = model(imgs, nss)
+                    y_output[i] = outputs.item()
+
+                y_output_logistic = fit_logistic_model(y_val, y_output)
+                test_PLCC = stats.pearsonr(y_output_logistic, y_val)[0]
+                test_SROCC = stats.spearmanr(y_output, y_val)[0]
+                test_RMSE = np.sqrt(((y_output_logistic-y_val) ** 2).mean())
+                test_KROCC = scipy.stats.kendalltau(y_output, y_val)[0]
+                print("Test results: SROCC={:.4f}, KROCC={:.4f}, PLCC={:.4f}, RMSE={:.4f}".format(test_SROCC, test_KROCC, test_PLCC, test_RMSE))
+
+                if test_SROCC > best_test_criterion:
+                    print("Update best model using best_val_criterion ")
+                    torch.save(model.state_dict(), 'ckpts/' + datasets + '_' + str(fold) + '_best_model.pth')
+                    # scio.savemat(trained_model_file+'.mat',{'y_pred':y_pred,'y_test':y_test})
+                    best[0:4] = [test_SROCC, test_KROCC, test_PLCC, test_RMSE]
+                    best_test_criterion = test_SROCC  # update best val SROCC
+
+                    print("Update the best Test results: SROCC={:.4f}, KROCC={:.4f}, PLCC={:.4f}, RMSE={:.4f}".format(test_SROCC, test_KROCC, test_PLCC, test_RMSE))
+        print(datasets)
+        best_all[fold-1, :] = best
+        print("The best Val results: SROCC={:.4f}, KROCC={:.4f}, PLCC={:.4f}, RMSE={:.4f}".format(best[0], best[1], best[2], best[3]))
+        print('*************************************************************************************************************************')
+    
+    # average score
+    best_mean = np.mean(best_all, 0)
+    print('*************************************************************************************************************************')
+    print("The mean val results: SROCC={:.4f}, KROCC={:.4f}, PLCC={:.4f}, RMSE={:.4f}".format(best_mean[0], best_mean[1], best_mean[2], best_mean[3]))
+    print('*************************************************************************************************************************')
+
+
