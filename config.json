@@ -13,6 +13,10 @@
                         "...",
                         "/path/to/mos/dataset2/mos.csv"],
     
+    "nss_features_paths" : ["/path/to/nss/features/nss1.csv",
+                            "...",
+                            "/path/to/nss/features/nss3.csv"],
+    
     "number_of_projections": 8,
     "loss": "l2rank",
     "datasets": ["sjtu", "wpc", "wpc2.0"],

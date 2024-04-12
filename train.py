@@ -7,12 +7,14 @@ import random
 import scipy
 from scipy import stats
 from scipy.optimize import curve_fit
+from sklearn.model_selection import KFold, train_test_split
 import numpy as np
 
 import torch
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
 from torchvision import transforms
+from torch.utils.data import DataLoader, Subset
 
 from models.main_model import MM_NSSInet
 from utils.MultiModalDataset import MultiModalDataset
@@ -84,11 +86,78 @@ def parse_args():
 
 
 if __name__ == "__main__":
-   
+    print('*****************************************************************************')
     args = parse_args()
-    gpu_id = args.gpu
+    set_random_seed()
+    cudnn.enabled = True
+    
+    # Hyperparameters
+    gpu = args.gpu
+    num_epochs = args.num_epochs
+    batch_size = args.batch_size
+    learning_rate = args.learning_rate
+    decay_rate = args.decay_rate
+    k_fold_num = args.k_fold_num
+    
+    # Input data
+    projections_dirs = args.projections_dirs
+    mos_data_paths = args.mos_data_paths
+    number_of_projections = args.number_of_projections
+    nss_features_paths = args.nss_features_paths
     datasets = args.datasets
-    print("Using GPU ID:", gpu_id)
-    print("The datasets used are: ", datasets)
     
+    print("The dataset(s) used is/are: ", datasets)
     
+    # GPU readiness
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if torch.cuda.is_available():
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu)
+        print("Using GPU")
+    
+    # See https://pytorch.org/hub/pytorch_vision_resnet/
+    transformations_train = transforms.Compose([
+        transforms.RandomCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
+
+    transformations_test = transforms.Compose([
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
+    
+    print('*****************************************************************************')
+    # Load the MultiModalDataset
+    complete_dataset = MultiModalDataset(projections_dirs=projections_dirs, 
+                                mos_data_paths=mos_data_paths,
+                                number_of_projections=number_of_projections,
+                                nss_features_dir=nss_features_paths,
+                                datasets=datasets)
+    
+    # Split the dataset into training and tens sets (80% train & 20% test)
+    train_indices, test_indices = train_test_split(range(len(complete_dataset)), test_size=0.2, random_state=42)
+    
+    # Create subset for training and testing
+    train_dataset = Subset(complete_dataset, train_indices)
+    test_dataset = Subset(complete_dataset, test_indices)
+    
+    # Start kfold cross validation loop
+    kf = KFold(n_splits=k_fold_num, shuffle=True, random_state=42)
+    for fold, (train_ids, val_ids) in enumerate(kf.split(range(len(complete_dataset)))):
+        print(f"Starting fold {fold+1}/{k_fold_num}")
+        
+        # Subset training dataset in training and vailidation
+        train_subset = Subset(train_dataset, train_ids)
+        val_subset = Subset(train_dataset, val_ids)
+        
+        # Initialize data loaders for current fold
+        train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=8)
+        val_loader = DataLoader(val_subset, batch_size=batch_size, shuffle=False, num_workers=8)
+        
+        # Initialize model
+        if args.model == "nss1":
+            model = MM_NSSInet()
+            model = model.to(device)
+        
+        if args.loss = "l2rank"
