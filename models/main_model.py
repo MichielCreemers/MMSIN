@@ -62,33 +62,33 @@ class MM_NSSInet(nn.Module):
                                      nss_inplanes=self.nss_features_dim, 
                                      cma_planes=self.common_feature_dim)
         
-        def forward(self, image, nss_features):
-            """_summary_
+    def forward(self, image, nss_features):
+        """_summary_
 
-            Args:
-                image (Tensor[batch_size, num_projections, C, H, W]): Images for a batch
-                nss_features (Tensor[batch_size, 64]): nss features for a batch
-            """
-            
-            # Process 2D projections through image backbone
-            # Reshape image from [batch_size, num_projections, C, H, W]
-            # to [batch_size * num_projections, C, H, W]
-            image = image.view(-1, *image.shape[2:])
-            image_features = self.image_backbone(image)  #Extraction of features
-            
-            # Flatten output features from the backbone that are in the format 
-            # [batch_size * num_projections, image_feature_dim, H', W']
-            image_features = torch.flatten(image_features, start_dim=1)
-            
-            # Re-arrange image_features back to [batch_size, num_projections, image_feature_dim]
-            image_features = image_features.view(-1, image.shape[1], self.image_feature_dim)
-            
-            # Average projection features to get a single feature vecture per image in the batch
-            image_features = torch.mean(image_features, dim=1)
-            
-            # Fuse the features using CMA fusion module and regress to output
-            output = self.regression(image_features, nss_features)
-            
-            return output
-            
+        Args:
+            image (Tensor[batch_size, num_projections, C, H, W]): Images for a batch
+            nss_features (Tensor[batch_size, 64]): nss features for a batch
+        """
+        
+        # Process 2D projections through image backbone
+        # Reshape image from [batch_size, num_projections, C, H, W]
+        # to [batch_size * num_projections, C, H, W]
+        image = image.view(-1, *image.shape[2:])
+        image_features = self.image_backbone(image)  #Extraction of features
+        
+        # Flatten output features from the backbone that are in the format 
+        # [batch_size * num_projections, image_feature_dim, H', W']
+        image_features = torch.flatten(image_features, start_dim=1)
+        
+        # Re-arrange image_features back to [batch_size, num_projections, image_feature_dim]
+        image_features = image_features.view(-1, image.shape[1], self.image_feature_dim)
+        
+        # Average projection features to get a single feature vecture per image in the batch
+        image_features = torch.mean(image_features, dim=1)
+        
+        # Fuse the features using CMA fusion module and regress to output
+        output = self.regression(image_features, nss_features)
+        
+        return output
+        
             

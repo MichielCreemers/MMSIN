@@ -203,12 +203,16 @@ if __name__ == "__main__":
 
             for i, (imgs, nss, mos) in enumerate(train_loader):
                 imgs = imgs.to(device)
+                print("images:", imgs.shape)
                 nss  = nss[:,np.newaxis]
                 nss  = nss.to(device)
+                print("nss:", nss.shape)
+
                 #!!!!!!!!
                 mos  = mos[:,np.newaxis]
                 #!!!!!!!!
                 mos.to(device)
+
                 mos_output = model(imgs, nss)
 
                 loss = criterion(mos_output, mos)

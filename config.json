@@ -13,6 +13,6 @@
     
     "number_of_projections": 6,
     "loss": "l2rank",
-    "datasets": ["wpc"],
+    "datasets": ["WPC"],
     "k_fold_num": 5
 }
