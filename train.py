@@ -115,10 +115,10 @@ if __name__ == "__main__":
     print("The dataset(s) used is/are: ", datasets)
     
     # GPU readiness
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    if torch.cuda.is_available():
-        os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu)
-        print("Using GPU")
+    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # if torch.cuda.is_available():
+    #     os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu)
+    #     print("Using GPU")
     
     # See https://pytorch.org/hub/pytorch_vision_resnet/
     transformations_train = transforms.Compose([
@@ -150,6 +150,12 @@ if __name__ == "__main__":
     # Start kfold cross validation loop
     kf = KFold(n_splits=k_fold_num, shuffle=True, random_state=42)
     for fold, (train_ids, val_ids) in enumerate(kf.split(train_dataset.indices)):
+        
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        if torch.cuda.is_available():
+            os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu)
+            print("Using GPU")
+        
         print(f"Starting fold {fold+1}/{k_fold_num}")
         
         # Create copies
@@ -163,8 +169,8 @@ if __name__ == "__main__":
         val_subset = Subset(val_dataset_clone, val_ids)
         
         # Initialize data loaders for current fold ---- IN OUT LOOP?????? __________!_!_____________!_!_!_______________!_!____________
-        train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=8)
-        val_loader = DataLoader(val_subset, batch_size=batch_size, shuffle=False, num_workers=8)
+        train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=0)
+        val_loader = DataLoader(val_subset, batch_size=1, shuffle=False, num_workers=0)
         
         # Initialize model, criterion, optimizer
         if args.model == "nss1":
@@ -184,8 +190,9 @@ if __name__ == "__main__":
         print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
 
         best_test_criterion = -1 
-        best = np.zeros
+        best = np.zeros(4)
 
+        
         for epoch in range(num_epochs):
 
             n_train = len(train_subset)
@@ -199,14 +206,14 @@ if __name__ == "__main__":
             
             x_output = np.zeros(n_train)
             #!!!!!!!!!!!!!!!!!!!!!!!!!!
-            x_val  = np.zeros(n_val)
+            x_val  = np.zeros(n_train)
 
             for i, (imgs, nss, mos) in enumerate(train_loader):
                 imgs = imgs.to(device)
-                print("images:", imgs.shape)
+                # print("images:", imgs.shape)
                 # nss  = nss[:,np.newaxis]
                 nss  = nss.to(device)
-                print("nss:", nss.shape)
+                # print("nss:", nss.shape)
 
                 #!!!!!!!!
                 mos  = mos[:,np.newaxis]
@@ -223,6 +230,9 @@ if __name__ == "__main__":
                 torch.autograd.backward(loss)
                 optimizer.step()
 
+            # print("Images on device:", imgs.device)
+            # print("Model on device:", next(model.parameters()).device)
+            
             avg_loss = sum(batch_losses) / (len(train_subset) // batch_size)
             print('Epoch %d averaged training loss: %.4f' % (epoch + 1, avg_loss))
 
@@ -239,9 +249,10 @@ if __name__ == "__main__":
 
             with torch.no_grad():
                 for i, (imgs, nss, mos) in enumerate(val_loader):
-                    imgs.to(device)
+                    imgs = imgs.to(device)
                     # nss = nss[:, np.newaxis]
                     nss = nss.to(device)
+                    # print("The MOS shape: ", mos.shape)
                     y_val[i] = mos.item()
                     outputs = model(imgs, nss)
                     y_output[i] = outputs.item()
@@ -255,7 +266,7 @@ if __name__ == "__main__":
 
                 if test_SROCC > best_test_criterion:
                     print("Update best model using best_val_criterion ")
-                    torch.save(model.state_dict(), 'ckpts/' + datasets + '_' + str(fold) + '_best_model.pth')
+                    torch.save(model.state_dict(), 'ckpts/' + str(datasets) + '_' + str(fold) + '_best_model.pth')
                     # scio.savemat(trained_model_file+'.mat',{'y_pred':y_pred,'y_test':y_test})
                     best[0:4] = [test_SROCC, test_KROCC, test_PLCC, test_RMSE]
                     best_test_criterion = test_SROCC  # update best val SROCC
