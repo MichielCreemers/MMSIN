@@ -240,7 +240,7 @@ if __name__ == "__main__":
             with torch.no_grad():
                 for i, (imgs, nss, mos) in enumerate(val_loader):
                     imgs.to(device)
-                    nss = nss[:, np.newaxis]
+                    # nss = nss[:, np.newaxis]
                     nss = nss.to(device)
                     y_val[i] = mos.item()
                     outputs = model(imgs, nss)
