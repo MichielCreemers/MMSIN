@@ -22,8 +22,11 @@ class CMA_fusion(nn.Module):
         #  map the image and NSS features from their original dimensionality 
         # (image_inplanes and nss_inplanes) to the common feature space dimensionality (cma_planes).
         image_features = self.linear1(image_features)
+        print("image_features before bn: ", image_features.shape)
         image_features = self.image_bn(image_features)
+        print("image_features after bn: ", image_features.shape)
         nss_features = self.linear2(nss_features)
+        print("nss_features shape: ", nss_features.shape)
         nss_features = self.nss_bn(nss_features)
         
         # Add singleton dimension -> MultiheadAttention requires [seq_len, batch_size, feature_size] because batch_first False by default in MultiHeadAttention !!!
@@ -69,23 +72,24 @@ class MM_NSSInet(nn.Module):
             image (Tensor[batch_size, num_projections, C, H, W]): Images for a batch
             nss_features (Tensor[batch_size, 64]): nss features for a batch
         """
-        
+        image_shape = image.shape
         # Process 2D projections through image backbone
         # Reshape image from [batch_size, num_projections, C, H, W]
         # to [batch_size * num_projections, C, H, W]
         image = image.view(-1, *image.shape[2:])
+        print(image.shape)
         image_features = self.image_backbone(image)  #Extraction of features
-        
+        print("image features: ", image_features.shape)
         # Flatten output features from the backbone that are in the format 
         # [batch_size * num_projections, image_feature_dim, H', W']
         image_features = torch.flatten(image_features, start_dim=1)
-        
+        print("image features: ", image_features.shape)
         # Re-arrange image_features back to [batch_size, num_projections, image_feature_dim]
-        image_features = image_features.view(-1, image.shape[1], self.image_feature_dim)
-        
+        image_features = image_features.view(-1, image_shape[1], self.image_feature_dim)
+        print("image features (bs, np, 2048): ", image_features.shape)
         # Average projection features to get a single feature vecture per image in the batch
         image_features = torch.mean(image_features, dim=1)
-        
+        print("image features: ", image_features.shape)
         # Fuse the features using CMA fusion module and regress to output
         output = self.regression(image_features, nss_features)
         
