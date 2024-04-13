@@ -43,7 +43,7 @@ class L2RankLoss(torch.nn.Module):
         else:
             rank_loss = masks_hard * torch.relu(- masks * (prediction - prediction_t))
 
-        rank_loss = (rank_loss.sum() / (rank_loss.sum + 1e-08)) * self.rank_weight
+        rank_loss = (rank_loss.sum() / (rank_loss.sum() + 1e-08)) * self.rank_weight
 
         total_loss = l2_loss + rank_loss
 
