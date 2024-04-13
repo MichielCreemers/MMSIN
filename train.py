@@ -211,7 +211,7 @@ if __name__ == "__main__":
                 #!!!!!!!!
                 mos  = mos[:,np.newaxis]
                 #!!!!!!!!
-                mos.to(device)
+                mos = mos.to(device)
 
                 mos_output = model(imgs, nss)
 
@@ -241,7 +241,7 @@ if __name__ == "__main__":
                 for i, (imgs, nss, mos) in enumerate(val_loader):
                     imgs.to(device)
                     nss = nss[:, np.newaxis]
-                    nss.to(device)
+                    nss = nss.to(device)
                     y_val[i] = mos.item()
                     outputs = model(imgs, nss)
                     y_output[i] = outputs.item()
