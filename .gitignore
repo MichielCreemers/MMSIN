@@ -8,5 +8,6 @@
 */projections_size_3
 */projections_size_4
 */projections_size_8
-
+*/ckpts
+*.pth
 
