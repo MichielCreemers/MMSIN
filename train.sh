@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python train.py >> logs/wpc_mmpcqa.log
+python train_no_val.py >> logs/wpc_mmpcqa.log
