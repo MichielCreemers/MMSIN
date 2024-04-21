@@ -23,10 +23,12 @@ class CMA_fusion(nn.Module):
         # (image_inplanes and nss_inplanes) to the common feature space dimensionality (cma_planes).
         image_features = self.linear1(image_features)
         # print("image_features before bn: ", image_features.shape)
+        # if image_features.size(0) > 1:
         image_features = self.image_bn(image_features)
         # print("image_features after bn: ", image_features.shape)
         nss_features = self.linear2(nss_features)
         # print("nss_features shape: ", nss_features.shape)
+        # if nss_features.size(0) > 1:
         nss_features = self.nss_bn(nss_features)
         
         # Add singleton dimension -> MultiheadAttention requires [seq_len, batch_size, feature_size] because batch_first False by default in MultiHeadAttention !!!
