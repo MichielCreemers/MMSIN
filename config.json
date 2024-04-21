@@ -1,11 +1,11 @@
 {
     "gpu": 0,
-    "num_epochs": 100,
-    "batch_size": 8,
+    "num_epochs": 300,
+    "batch_size": 12,
     "learning_rate": 0.001,
     "decay_rate": 0.0001,
     "model": "nss1",
-    "projections_dirs" : ["WPC/projections"],
+    "projections_dirs" : ["WPC/projections_size_6_good"],
     
     "mos_data_paths": ["WPC/WPC_MOS.csv"],
     
