@@ -5,7 +5,7 @@
     "learning_rate": 0.001,
     "decay_rate": 0.0001,
     "model": "nss1",
-    "projections_dirs" : ["WPC/projections_size_6_good"],
+    "projections_dirs" : ["WPC/projections"],
     
     "mos_data_paths": ["WPC/WPC_MOS.csv"],
     
