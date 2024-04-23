@@ -12,18 +12,6 @@ from utils import projections
 from utils.NSS import feature_extract, nss_functions, feature_functions
 from models.main_model import MM_NSSInet
 
-def extract_floats(data):
-    flat_list = []
-    for item in data:
-        # Check if the item is an instance of a numpy array
-        if isinstance(item, np.ndarray):
-            # Extend the flat_list with all elements of the array converted to float
-            flat_list.extend(item.astype(float).flatten().tolist())
-        else:
-            # Convert item to float and append to flat_list
-            flat_list.append(float(item))
-    return flat_list
-
 def assess_quality(config):
 
     projections.make_projections(config.pcname,config.projections_folder,config.x_projections, config.y_projections, config.point_size, 'default', False)
@@ -77,8 +65,8 @@ if __name__ == '__main__':
 
     parser  = argparse.ArgumentParser()
 
-    parser.add_argument('--pcname', type=str, help='path to the point cloud whose quality we want to assess', default='WPC/point_clouds/bag/bag_gQP_1_tQP_1.ply')
-    parser.add_argument('--model', type=str, help='path to the trained model we want to use to assess the point cloud', default="ckpts/WPC_300_epoch/['WPC']_1_best_model.pth")
+    parser.add_argument('--pcname', type=str, help='path to the point cloud whose quality we want to assess', default='WPC/point_clouds/bag/bag_level_9.ply')
+    parser.add_argument('--model', type=str, help='path to the trained model we want to use to assess the point cloud', default="ckpts/WPC_300_epoch/['WPC']_0_best_model.pth")
     parser.add_argument('--x_projections', type=int, help='the number of projections along the x-axis to take', default=4)
     parser.add_argument('--y_projections', type=int, help='the number of projections along the y-axis to take', default=4)
     parser.add_argument('--point_size', type=str, help='size of the projections', default=2)
