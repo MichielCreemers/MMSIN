@@ -66,7 +66,7 @@ class ExampleWindow:
 
         pcfilebutton.vertical_padding_em = 0
 
-        pcfilebutton.set_on_clicked(self._on_filedlg_button)
+        pcfilebutton.set_on_clicked(self._on_pc_button)
 
 
         # (Create the horizontal widget for the row. This will make sure the
@@ -87,6 +87,36 @@ class ExampleWindow:
 
         layout.add_child(pcfileedit_layout)
 
+
+        # add file selector for the model
+
+        self._modelfileedit = gui.TextEdit()
+
+        modelfilebutton = gui.Button("...")
+
+        modelfilebutton.horizontal_padding_em = 0.5
+
+        modelfilebutton.vertical_padding_em = 0
+
+        modelfilebutton.set_on_clicked(self._on_model_button)
+
+
+
+        # text editor takes up as much space as it can.)
+
+        modelfileedit_layout = gui.Horiz()
+
+        modelfileedit_layout.add_child(gui.Label("Select point cloud file"))
+
+        modelfileedit_layout.add_child(self._modelfileedit)
+
+        modelfileedit_layout.add_fixed(2 * em)
+
+        modelfileedit_layout.add_child(modelfilebutton)
+
+        # add to the top-level (vertical) layout
+
+        layout.add_child(modelfileedit_layout)
 
         # Create a collapsible vertical widget, which takes up enough vertical
 
@@ -113,194 +143,17 @@ class ExampleWindow:
         collapse.add_child(self._label)
 
 
-        # Create a checkbox. Checking or unchecking would usually be used to set
+        
 
-        # a binary property, but in this case it will show a simple message box,
 
-        # which illustrates how to create simple dialogs.
 
-        cb = gui.Checkbox("Enable some really cool effect")
 
-        cb.set_on_checked(self._on_cb)  # set the callback function
+       
 
-        collapse.add_child(cb)
 
+        
 
-        # Create a color editor. We will change the color of the orange label
-
-        # above when the color changes.
-
-        color = gui.ColorEdit()
-
-        color.color_value = self._label.text_color
-
-        color.set_on_value_changed(self._on_color)
-
-        collapse.add_child(color)
-
-
-        # This is a combobox, nothing fancy here, just set a simple function to
-
-        # handle the user selecting an item.
-
-        combo = gui.Combobox()
-
-        combo.add_item("Show point labels")
-
-        combo.add_item("Show point velocity")
-
-        combo.add_item("Show bounding boxes")
-
-        combo.set_on_selection_changed(self._on_combo)
-
-        collapse.add_child(combo)
-
-
-        # This is a toggle switch, which is similar to a checkbox. To my way of
-
-        # thinking the difference is subtle: a checkbox toggles properties
-
-        # (for example, purely visual changes like enabling lighting) while a
-
-        # toggle switch is better for changing the behavior of the app (for
-
-        # example, turning on processing from the camera).
-
-        switch = gui.ToggleSwitch("Continuously update from camera")
-
-        switch.set_on_clicked(self._on_switch)
-
-        collapse.add_child(switch)
-
-
-        self.logo_idx = 0
-
-        proxy = gui.WidgetProxy()
-
-
-        def switch_proxy():
-
-            self.logo_idx += 1
-
-            if self.logo_idx % 3 == 0:
-
-                proxy.set_widget(None)
-
-            elif self.logo_idx % 3 == 1:
-
-                # Add a simple image
-
-                logo = gui.ImageWidget(basedir + "/icon-32.png")
-
-                proxy.set_widget(logo)
-
-            else:
-
-                label = gui.Label(
-
-                    'Open3D: A Modern Library for 3D Data Processing')
-
-                proxy.set_widget(label)
-
-            w.set_needs_layout()
-
-
-        logo_btn = gui.Button('Switch Logo By WidgetProxy')
-
-        logo_btn.vertical_padding_em = 0
-
-        logo_btn.background_color = gui.Color(r=0, b=0.5, g=0)
-
-        logo_btn.set_on_clicked(switch_proxy)
-
-        collapse.add_child(logo_btn)
-
-        collapse.add_child(proxy)
-
-
-        # Widget stack demo
-
-        self._widget_idx = 0
-
-        hz = gui.Horiz(spacing=5)
-
-        push_widget_btn = gui.Button('Push widget')
-
-        push_widget_btn.vertical_padding_em = 0
-
-        pop_widget_btn = gui.Button('Pop widget')
-
-        pop_widget_btn.vertical_padding_em = 0
-
-        stack = gui.WidgetStack()
-
-        stack.set_on_top(lambda w: print(f'New widget is: {w.text}'))
-
-        hz.add_child(gui.Label('WidgetStack '))
-
-        hz.add_child(push_widget_btn)
-
-        hz.add_child(pop_widget_btn)
-
-        hz.add_child(stack)
-
-        collapse.add_child(hz)
-
-
-        def push_widget():
-
-            self._widget_idx += 1
-
-            stack.push_widget(gui.Label(f'Widget {self._widget_idx}'))
-
-
-        push_widget_btn.set_on_clicked(push_widget)
-
-        pop_widget_btn.set_on_clicked(stack.pop_widget)
-
-
-        # Add a list of items
-
-        lv = gui.ListView()
-
-        lv.set_items(["Ground", "Trees", "Buildings", "Cars", "People", "Cats"])
-
-        lv.selected_index = lv.selected_index + 2  # initially is -1, so now 1
-
-        lv.set_max_visible_items(4)
-
-        lv.set_on_selection_changed(self._on_list)
-
-        collapse.add_child(lv)
-
-
-        # Add a tree view
-
-        tree = gui.TreeView()
-
-        tree.add_text_item(tree.get_root_item(), "Camera")
-
-        geo_id = tree.add_text_item(tree.get_root_item(), "Geometries")
-
-        mesh_id = tree.add_text_item(geo_id, "Mesh")
-
-        tree.add_text_item(mesh_id, "Triangles")
-
-        tree.add_text_item(mesh_id, "Albedo texture")
-
-        tree.add_text_item(mesh_id, "Normal map")
-
-        points_id = tree.add_text_item(geo_id, "Points")
-
-        tree.can_select_items_with_children = True
-
-        tree.set_on_selection_changed(self._on_tree)
-
-        # does not call on_selection_changed: user did not change selection
-
-        tree.selected_item = points_id
-
-        collapse.add_child(tree)
+        
 
 
         # Add two number editors, one for integers and one for floating point
@@ -309,36 +162,35 @@ class ExampleWindow:
 
         # useful for integers than for floating point.
 
-        intedit = gui.NumberEdit(gui.NumberEdit.INT)
+        x_proj = gui.NumberEdit(gui.NumberEdit.INT)
 
-        intedit.int_value = 0
+        x_proj.int_value = 0
 
-        intedit.set_limits(1, 19)  # value coerced to 1
+        x_proj.set_limits(1, 100)  # value coerced to 1
 
-        intedit.int_value = intedit.int_value + 2  # value should be 3
 
-        doubleedit = gui.NumberEdit(gui.NumberEdit.DOUBLE)
+        y_proj = gui.NumberEdit(gui.NumberEdit.INT)
 
-        numlayout = gui.Horiz()
+        projlayout = gui.Horiz()
 
-        numlayout.add_child(gui.Label("int"))
+        projlayout.add_child(gui.Label("int"))
 
-        numlayout.add_child(intedit)
+        projlayout.add_child(x_proj)
 
-        numlayout.add_fixed(em)  # manual spacing (could set it in Horiz() ctor)
+        projlayout.add_fixed(em)  # manual spacing (could set it in Horiz() ctor)
 
-        numlayout.add_child(gui.Label("double"))
+        projlayout.add_child(gui.Label("double"))
 
-        numlayout.add_child(doubleedit)
+        projlayout.add_child(y_proj)
 
-        collapse.add_child(numlayout)
+        layout.add_child(projlayout)
 
 
         # Create a progress bar. It ranges from 0.0 to 1.0.
 
         self._progress = gui.ProgressBar()
 
-        self._progress.value = 0.25  # 25% complete
+        self._progress.value = 0
 
         self._progress.value = self._progress.value + 0.08  # 0.25 + 0.08 = 33%
 
@@ -348,7 +200,7 @@ class ExampleWindow:
 
         prog_layout.add_child(self._progress)
 
-        collapse.add_child(prog_layout)
+        layout.add_child(prog_layout)
 
 
         # Create a slider. It acts very similar to NumberEdit except that the
@@ -517,7 +369,7 @@ class ExampleWindow:
         w.add_child(layout)
 
 
-    def _on_filedlg_button(self):
+    def _on_pc_button(self):
 
         filedlg = gui.FileDialog(gui.FileDialog.OPEN, "Select file",
 
@@ -533,6 +385,21 @@ class ExampleWindow:
 
         self.window.show_dialog(filedlg)
 
+    def _on_model_button(self):
+        
+        filedlg = gui.FileDialog(gui.FileDialog.OPEN, "Select file",
+
+                                 self.window.theme)
+
+        filedlg.add_filter(".pth", "Trained Model (.pth)")
+
+        filedlg.add_filter("", "All files")
+
+        filedlg.set_on_cancel(self._on_filedlg_cancel)
+
+        filedlg.set_on_done(self._on_filedlg_done)
+
+        self.window.show_dialog(filedlg)
 
     def _on_filedlg_cancel(self):
 
