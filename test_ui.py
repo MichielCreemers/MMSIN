@@ -260,8 +260,8 @@ class ExampleWindow:
 
     def _assess_quality(self):
 
-        projections_folder = "test_projections"
-        projections.make_projections(self._pcfileedit.text_value,"test_projections",4, 4, 4, 'default', False)
+        projections_folder = "test"
+        # projections.make_projections(self._pcfileedit.text_value,"test_projections",4, 4, 4, 'default', False)
         images = glob.glob(f'{projections_folder}/*.png')
 
         transformation = transforms.Compose([transforms.CenterCrop(224),transforms.ToTensor(),\
@@ -283,9 +283,9 @@ class ExampleWindow:
         
         features_df = pd.DataFrame([nss_features], columns=feature_names)
 
-        scaler = joblib.load('utils/NSS/sc.joblib')
+        # scaler = joblib.load('utils/NSS/sc.joblib')
 
-        nss_features = scaler.transform(features_df)
+        # nss_features = scaler.transform(features_df)
 
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

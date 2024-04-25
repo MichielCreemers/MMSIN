@@ -104,7 +104,7 @@ def rotate_and_capture_images(pcd, image_path: str, strategy: tuple[list, float,
         visualise (bool, optional): _description_. Defaults to False.
     """
     sequence, x_angle_step, y_angle_step = strategy
-    
+    print("got here")
     vis = o3d.visualization.Visualizer()
     vis.create_window(window_name='EXTRACTOR', visible=visualise)
     vis.add_geometry(pcd)
