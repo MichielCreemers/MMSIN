@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import customtkinter as ctk
 from tkinter import filedialog
 import glob
 import torch
@@ -13,76 +14,57 @@ from utils import projections
 from utils.NSS import feature_extract, nss_functions, feature_functions
 from models.main_model import MM_NSSInet
 
-class ExampleWindow(tk.Tk):
+class ExampleWindow(ctk.CTk):
+   
     def __init__(self):
         super().__init__()
-        self.title("Test")
-        self.geometry("1100x500")
-
-        style = ttk.Style()
-        style.configure("TButton", padding=(8, 16), font=("Arial", 14))
-        style.map("TButton",
-                  foreground=[('pressed', 'white'), ('active', 'white')],
-                  background=[('pressed', '!disabled', '#003d80'), ('active', '#0056b3')])
+        self.title("3D Point Cloud Quality Assessment")
+        self.geometry("800x300")
+        ctk.set_appearance_mode("dark")  # Dark mode
+        ctk.set_default_color_theme("blue")  # Blue theme
 
         self.setup_gui()
 
     def setup_gui(self):
-        main_frame = ttk.Frame(self)
-        main_frame.pack(fill=tk.BOTH, expand=True)
+        self.grid_columnconfigure(1, weight=1)
 
-        pc_file_frame = ttk.Frame(main_frame)
-        pc_file_frame.pack(pady=10, padx=10, fill=tk.X)
+        frame_style = {"corner_radius": 10, "fg_color": "#333333"}  # Adjust frame colors and corner radius
 
-        pc_file_label = ttk.Label(pc_file_frame, text="Select point cloud file")
-        pc_file_label.pack(side=tk.LEFT, padx=(0, 10))
+        # Point Cloud File Selection
+        pc_file_label = ctk.CTkLabel(self, text="Point Cloud File:")
+        pc_file_label.grid(row=0, column=0, padx=10, pady=10, sticky="e")
 
-        self.pc_file_edit = ttk.Entry(pc_file_frame, width=40)
-        self.pc_file_edit.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        self.pc_file_edit = ctk.CTkEntry(self, width=120, **frame_style)
+        self.pc_file_edit.grid(row=0, column=1, padx=10, pady=10, sticky="we")
 
-        pc_file_button = ttk.Button(pc_file_frame, text="...", command=self.on_pc_button)
-        pc_file_button.pack(side=tk.LEFT)
+        pc_file_button = ctk.CTkButton(self, text="Browse", command=self.on_pc_button, **frame_style)
+        pc_file_button.grid(row=0, column=2, padx=10, pady=10)
 
-        model_file_frame = ttk.Frame(main_frame)
-        model_file_frame.pack(pady=10, padx=10, fill=tk.X)
+        # Model File Selection
+        model_file_label = ctk.CTkLabel(self, text="Model File:")
+        model_file_label.grid(row=1, column=0, padx=10, pady=10, sticky="e")
 
-        model_file_label = ttk.Label(model_file_frame, text="Select model file")
-        model_file_label.pack(side=tk.LEFT, padx=(0, 10))
+        self.model_file_edit = ctk.CTkEntry(self, width=120, **frame_style)
+        self.model_file_edit.grid(row=1, column=1, padx=10, pady=10, sticky="we")
 
-        self.model_file_edit = ttk.Entry(model_file_frame, width=40)
-        self.model_file_edit.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        model_file_button = ctk.CTkButton(self, text="Browse", command=self.on_model_button, **frame_style)
+        model_file_button.grid(row=1, column=2, padx=10, pady=10)
 
-        model_file_button = ttk.Button(model_file_frame, text="...", command=self.on_model_button)
-        model_file_button.pack(side=tk.LEFT)
+        # Calculate Button
+        calculate_button = ctk.CTkButton(self, text="Calculate Quality", command=self.on_ok, **frame_style)
+        calculate_button.grid(row=2, column=0, columnspan=3, padx=20, pady=20)
 
-        proj_frame = ttk.Frame(main_frame)
-        proj_frame.pack(pady=10, padx=10, fill=tk.X)
-
-        x_proj_label = ttk.Label(proj_frame, text="Number of x-projections")
-        x_proj_label.pack(side=tk.LEFT, padx=(0, 10))
-
-        self.x_proj_edit = ttk.Entry(proj_frame, width=10)
-        self.x_proj_edit.pack(side=tk.LEFT)
-
-        y_proj_label = ttk.Label(proj_frame, text="Number of y-projections")
-        y_proj_label.pack(side=tk.LEFT, padx=(20, 10))
-
-        self.y_proj_edit = ttk.Entry(proj_frame, width=10)
-        self.y_proj_edit.pack(side=tk.LEFT)
-
-        ok_button = ttk.Button(main_frame, text="Calculate Quality", command=self.on_ok)
-        ok_button.pack(pady=10)
 
     def on_pc_button(self):
         file_path = filedialog.askopenfilename(filetypes=[("Point Cloud Files", "*.obj *.ply *.stl")])
         if file_path:
-            self.pc_file_edit.delete(0, tk.END)
+            self.pc_file_edit.delete(0, ctk.END)
             self.pc_file_edit.insert(0, file_path)
 
     def on_model_button(self):
         file_path = filedialog.askopenfilename(filetypes=[("Model Files", "*.pth")])
         if file_path:
-            self.model_file_edit.delete(0, tk.END)
+            self.model_file_edit.delete(0, ctk.END)
             self.model_file_edit.insert(0, file_path)
 
     def _assess_quality(self):
