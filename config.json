@@ -1,6 +1,6 @@
 {
     "gpu": 0,
-    "num_epochs": 300,
+    "num_epochs": 100,
     "batch_size": 12,
     "learning_rate": 0.001,
     "decay_rate": 0.0001,
@@ -9,7 +9,7 @@
     
     "mos_data_paths": ["WPC/WPC_MOS.csv"],
     
-    "nss_features_paths" : ["WPC/WPC_NSS.csv"],
+    "nss_features_paths" : ["WPC/WPC_NSS_patches.csv"],
     
     "number_of_projections": 6,
     "loss": "l2rank",
