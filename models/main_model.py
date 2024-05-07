@@ -60,7 +60,7 @@ class MM_NSSInet(nn.Module):
     def __init__(self):
         super(MM_NSSInet, self).__init__()
         self.image_feature_dim = 2048  # the number of feature channels (or dimensions) coming from the 2D image projections after being processed by the image backbone
-        self.nss_features_dim = 384  # nss features dimensionality
+        self.nss_features_dim = 64  # nss features dimensionality
         self.common_feature_dim = 1024  # dim feature space mapped features before CMA.
         self.image_backbone = resnet50(pretrained=True)
         self.regression = CMA_fusion(image_inplanes=self.image_feature_dim, 

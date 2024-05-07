@@ -1,7 +1,7 @@
 #!/bin/bash
 
-target_pc_directory="SJTU/point_clouds"
-target_image_directory="SJTU/projections"
+target_pc_directory="SJTU/point_clouds/"
+target_image_directory="SJTU/projections_4"
 
 for file in $(find "$target_pc_directory" -type f -name "*.ply" | sort)
 do 
