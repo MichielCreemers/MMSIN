@@ -1,6 +1,6 @@
 {
     "gpu": 0,
-    "num_epochs": 100,
+    "num_epochs": 50,
     "batch_size": 8,
     "learning_rate": 0.001,
     "decay_rate": 0.0001,
@@ -11,7 +11,7 @@
     
     "nss_features_paths" : ["SJTU/SJTU_NSS.csv"],
     
-    "number_of_projections": 6,
+    "number_of_projections": 4,
     "loss": "l2rank",
     "datasets": ["SJTU"],
     "k_fold_num": 5
