@@ -11,7 +11,7 @@
     
     "nss_features_paths" : ["WPC/WPC_NSS.csv"],
     
-    "number_of_projections": 4,
+    "number_of_projections": 6,
     "loss": "l2rank",
     "datasets": ["WPC"],
     "k_fold_num": 5
