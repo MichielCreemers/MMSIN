@@ -67,7 +67,7 @@ def cross_test_dataset(config):
     plcc = scipy.stats.pearsonr(actual_scores, predictions)[0]
     rmse = np.sqrt(np.mean((actual_scores - predictions) ** 2))
     
-    print(f"Results for dataset {config.dataset}:")
+    print(f"Results for dataset {config.dataset} tested on model {config.model}:")
     print(f"SROCC: {srocc:.4f}")
     print(f"KROCC: {krocc:.4f}")
     print(f"PLCC: {plcc:.4f}")
