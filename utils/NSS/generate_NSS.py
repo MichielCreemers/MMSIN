@@ -1,6 +1,6 @@
-import utils.NSS.feature_extract as fe
-import utils.NSS.feature_functions as ff
-
+import feature_extract as fe
+import feature_functions as ff
+ 
 # import feature_extract as fe
 # import feature_functions as ff
 
@@ -9,11 +9,12 @@ import csv
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 import os
+import numpy as np
 import glob
 import joblib
 
 # get all point clouds in the folder
-dataset = "WPC"
+dataset = "WPC2"
 point_cloud_folder = dataset+"/point_clouds"
 
 
@@ -58,7 +59,12 @@ df_to_scale = sorted_df.copy()
 feature_columns = sorted_df.columns[1:]  # All columns except the first one ("name")
 df_to_scale[feature_columns] = scaler.fit_transform(df_to_scale[feature_columns])
 
-joblib.dump(scaler, 'sc.joblib') 
+min_values = scaler.min_
+scale = scaler.scale_
+
+scaler_params = np.array([min_values, scale])
+
+np.save('WPC2/scaler_params.npy', scaler_params)
 
 normalized_dataframe = df_to_scale
 

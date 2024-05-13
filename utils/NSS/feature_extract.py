@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from skimage import color
-from utils.NSS.nss_functions import * 
+from nss_functions import * 
 # from nss_functions import *
 from pyntcloud import PyntCloud
 import os 

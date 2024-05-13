@@ -1,7 +1,7 @@
 #!/bin/bash
 
-target_pc_directory="SJTU/point_clouds"
-target_image_directory="SJTU/projections"
+target_pc_directory="WPC/point_clouds"
+target_image_directory="WPC/projections_size_8"
 
 for file in $(find "$target_pc_directory" -type f -name "*.ply" | sort)
 do 
@@ -15,7 +15,7 @@ do
                              --image_path "$target_projection_directory" \
                              --x_projections 4 \
                              --y_projections 4 \
-                             --point_size 2
+                             --point_size 8
 
 done
 

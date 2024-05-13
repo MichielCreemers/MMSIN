@@ -1,18 +1,18 @@
 {
     "gpu": 0,
-    "num_epochs": 300,
-    "batch_size": 12,
+    "num_epochs": 100,
+    "batch_size": 8,
     "learning_rate": 0.001,
     "decay_rate": 0.0001,
     "model": "nss1",
-    "projections_dirs" : ["WPC/projections"],
+    "projections_dirs" : ["WPC2/projections"],
     
-    "mos_data_paths": ["WPC/WPC_MOS.csv"],
+    "mos_data_paths": ["WPC2/WPC2_MOS.csv"],
     
-    "nss_features_paths" : ["WPC/WPC_NSS.csv"],
+    "nss_features_paths" : ["WPC2/WPC2_NSS.csv"],
     
     "number_of_projections": 6,
     "loss": "l2rank",
-    "datasets": ["WPC"],
-    "k_fold_num": 4
+    "datasets": ["WPC2"],
+    "k_fold_num": 5
 }
