@@ -17,6 +17,8 @@ from models.main_model import MM_NSSInet
 def cross_test_dataset(config):
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    scaler_params = np.load(config.minmax_path)
+    min_vals, max_vals = scaler_params[0], scaler_params[1]
     
     # required image transformation for model
     transformations_test = transforms.Compose([
@@ -52,7 +54,7 @@ def cross_test_dataset(config):
             projections = projections.to(device)
             
             # scale nss features from dataset B to the range of dataset A that is used for training
-            !!!!!!!!!!!!!!!!!
+            nss = (nss - min_vals) / (max_vals - min_vals)
             
             nss = nss.to(device)
             actual_scores[i] = mos.item()
@@ -88,6 +90,11 @@ if __name__ == '__main__':
     parser.add_argument('nss_path', type=str, help='path to the csv file with the nss features for that dataset')
     parser.add_argument('--batch_size', type=int, help='The batch size for tesing')
     parser.add_argument('--number_projections', type=int, help='The number of projections for each point cloud')
-    parser.add_argument('--minmax_path', type=str, help='path to the joblib file with the minmax scaler where the model was trained on')
+    parser.add_argument('--minmax_path', type=str, help='path to the .npy file with the minmax scaler where the model was trained on')
     
     config = parser.parse_args()
+    
+    start = time.time()
+    cross_test_dataset(config)
+    end = time.time()
+    print(f"Time taken for cross testing took: {end - start:.4f} seconds.")
