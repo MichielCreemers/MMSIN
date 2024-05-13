@@ -169,8 +169,8 @@ if __name__ == "__main__":
         val_subset = Subset(val_dataset_clone, val_ids)
         
         # Initialize data loaders for current fold ---- IN OUT LOOP?????? __________!_!_____________!_!_!_______________!_!____________
-        train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=0)
-        val_loader = DataLoader(val_subset, batch_size=1, shuffle=False, num_workers=0)
+        train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=0)
+        val_loader = DataLoader(val_subset, batch_size=1, shuffle=False, drop_last=True, num_workers=0)
         
         # Initialize model, criterion, optimizer
         if args.model == "nss1":
