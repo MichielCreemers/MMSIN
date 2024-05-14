@@ -5,14 +5,14 @@
     "learning_rate": 0.001,
     "decay_rate": 0.0001,
     "model": "nss1",
-    "projections_dirs" : ["WPC2/projections"],
+    "projections_dirs" : ["WPC/projections_size_8"],
     
-    "mos_data_paths": ["WPC2/WPC2_MOS.csv"],
+    "mos_data_paths": ["WPC/WPC_MOS.csv"],
     
-    "nss_features_paths" : ["WPC2/WPC2_NSS.csv"],
+    "nss_features_paths" : ["WPC/WPC_NSS.csv"],
     
     "number_of_projections": 6,
     "loss": "l2rank",
-    "datasets": ["WPC2"],
-    "k_fold_num": 5
+    "datasets": ["WPC"],
+    "k_fold_num": 4
 }

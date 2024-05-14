@@ -1,0 +1,6 @@
+Natural scene statistics
+------------------------------
+Average time: 4.917770869731903
+Standard deviation: 2.0360901890523175
+Minimum time: 2.7729926109313965
+Maximum time: 8.663606405258179
