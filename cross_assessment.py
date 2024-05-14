@@ -27,19 +27,19 @@ def cross_test_dataset(config):
                                 mos_data_paths=[config.mos_data_path],
                                 number_of_projections=config.number_projections,
                                 nss_features_dir=[config.nss_path],
-                                datasets=config.dataset)
+                                datasets=[config.dataset])
     
     # Apply transformation
     complete_dataset.set_transform(transform=transformations_test)
     
     # Setup DataLoader for testing dataset
-    test_loader = DataLoader(complete_dataset, batch_size=config.batch_sizen, shuffle=False, num_workers=0)
+    test_loader = DataLoader(complete_dataset, batch_size=1, drop_last=True, shuffle=False, num_workers=0)
     
     # Load the pretrained model
     model = MM_NSSInet()
     model.load_state_dict(torch.load(config.model))
     model = model.to(device)
-    model.eval
+    model.eval()
     predictions = np.zeros(len(complete_dataset))
     actual_scores = np.zeros(len(complete_dataset))
     
@@ -50,8 +50,9 @@ def cross_test_dataset(config):
             
             # scale nss features from dataset B to the range of dataset A that is used for training
             nss = (nss - min_vals) / (max_vals - min_vals)
-            
-            nss = nss.to(device)
+            nss = torch.tensor(nss, dtype=torch.float).squeeze()
+            nss = nss.to(device).unsqueeze(0)
+            print(nss.shape)
             actual_scores[i] = mos.item()
             model_prediction = model(projections, nss)
             predictions[i] = model_prediction.item()
@@ -82,7 +83,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, help='path to a pre-trained model')
     parser.add_argument('--projections_dir', type=str, help='path to the directive with the projections for that dataset')
     parser.add_argument('--mos_data_path', type=str, help='path to the csv file with the MOS scores')
-    parser.add_argument('nss_path', type=str, help='path to the csv file with the nss features for that dataset')
+    parser.add_argument('--nss_path', type=str, help='path to the csv file with the nss features for that dataset')
     parser.add_argument('--batch_size', type=int, help='The batch size for tesing')
     parser.add_argument('--number_projections', type=int, help='The number of projections for each point cloud')
     parser.add_argument('--minmax_path', type=str, help='path to the .npy file with the minmax scaler where the model was trained on')
