@@ -3,17 +3,19 @@ import time
 import numpy as np
 import scipy.stats
 import torch
+import pandas as pd
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from utils.MultiModalDataset import MultiModalDataset
 from models.main_model import MM_NSSInet
+from sklearn.preprocessing import MinMaxScaler
 
 
 def cross_test_dataset(config):
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     scaler_params = np.load(config.minmax_path)
-    min_vals, max_vals = scaler_params[0], scaler_params[1]
+    min_vals, scale = scaler_params[0], scaler_params[1]
     
     # required image transformation for model
     transformations_test = transforms.Compose([
@@ -21,7 +23,7 @@ def cross_test_dataset(config):
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
-    
+    start_time = time.time()
     # Load the dataset
     complete_dataset = MultiModalDataset(projections_dirs=[config.projections_dir], 
                                 mos_data_paths=[config.mos_data_path],
@@ -34,7 +36,11 @@ def cross_test_dataset(config):
     
     # Setup DataLoader for testing dataset
     test_loader = DataLoader(complete_dataset, batch_size=1, drop_last=True, shuffle=False, num_workers=0)
-    
+    end_time = time.time()
+    duration = end_time-start_time
+    print("preprocessing took: " + str(duration) + "s")
+
+    start_time = time.time()
     # Load the pretrained model
     model = MM_NSSInet()
     model.load_state_dict(torch.load(config.model))
@@ -42,23 +48,46 @@ def cross_test_dataset(config):
     model.eval()
     predictions = np.zeros(len(complete_dataset))
     actual_scores = np.zeros(len(complete_dataset))
-    
+    scaler = MinMaxScaler()
+    scaler.min_ = min_vals
+    scaler.scale_ = scale
+    end_time = time.time()
+    duration = end_time-start_time
+    print("loading the model took: " + str(duration) + "s")
     # Do actual testing
+    df_timings = pd.DataFrame(columns=['time'])
+
     with torch.no_grad():
         for i, (projections, nss, mos) in enumerate(test_loader):
+            start_time = time.time()
+
             projections = projections.to(device)
             
             # scale nss features from dataset B to the range of dataset A that is used for training
-            nss = (nss - min_vals) / (max_vals - min_vals)
-            nss = torch.tensor(nss, dtype=torch.float).squeeze()
-            nss = nss.to(device).unsqueeze(0)
-            print(nss.shape)
+            nss_scaled = scaler.transform(nss)
+            nss_scaled = torch.tensor(nss_scaled, dtype=torch.float).squeeze()
+            nss_scaled = nss_scaled.to(device).unsqueeze(0)
+            print(nss_scaled.shape)
             actual_scores[i] = mos.item()
-            model_prediction = model(projections, nss)
+            model_prediction = model(projections, nss_scaled)
             predictions[i] = model_prediction.item()
             
             print(f"For the {i}-th point, a MOS score of {predictions[i]:.4f} is predicted compared to the actual MOS score of {actual_scores[i]:.4f}.")
-            
+            end_time = time.time()
+            duration = end_time-start_time
+            df_timings.loc[len(df_timings)] = duration
+
+    mean  = df_timings['time'].mean()
+    stdev = df_timings['time'].std()
+    min_time = df_timings['time'].min()
+    max_time = df_timings['time'].max()
+
+    print(f"Average time: {mean}")
+    print(f"Standard deviation: {stdev}")
+    print(f"Minimum time: {min_time}")
+    print(f"Maximum time: {max_time}")
+
+
     predictions = np.array(predictions)
     actual_scores = np.array(actual_scores)   
     

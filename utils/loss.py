@@ -18,7 +18,7 @@ class L2RankLoss(torch.nn.Module):
         self.use_margin =False
 
     def forward(self, prediction, ground_truths):
-        #reshave predictions and ground_truths into a 1 dimensional tensor
+        #reshape predictions and ground_truths into a 1 dimensional tensor
         prediction = prediction.view(-1)
         ground_truths = ground_truths.view(-1)
 

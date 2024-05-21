@@ -46,10 +46,7 @@ print("final time is"+ str(end_time))
 
 
 #alfabetize
-df_features.to_csv("test.csv", index= False)
-sorted_df = df_features.iloc[1:].sort_values(by="name", ascending=True)  
-
-sorted_df.to_csv("test2.csv", index= False)
+sorted_df = df_features.iloc[1:].sort_values(by="name", key=lambda col: col.str.lower(), ascending = True)
 
 #min-max_scaling
 
@@ -70,6 +67,8 @@ normalized_dataframe = df_to_scale
 
 #rename
 normalized_dataframe['name'] = normalized_dataframe['name'].str.rsplit('/', n=1).str[-1]
+sorted_df['name'] = sorted_df['name'].str.rsplit('/',n=1).str[-1]
 
 normalized_dataframe.to_csv(dataset + "/"  + dataset + "_NSS.csv", index=False)
+sorted_df.to_csv(dataset + "/" + dataset + "_NSS_non_scaled.csv", index=False)
 # print(all_names)

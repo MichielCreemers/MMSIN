@@ -190,11 +190,14 @@ if __name__ == "__main__":
         print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
 
         best_test_criterion = -1 
+        overall_best_test_criterion = -1
         best = np.zeros(4)
+        epoch_split=0
 
-        
         for epoch in range(num_epochs):
-
+            if epoch % 100 == 0:
+                best_test_criterion = -1
+                epoch_split += 1
             n_train = len(train_subset)
             n_val  = len(val_subset)
 
@@ -266,10 +269,12 @@ if __name__ == "__main__":
 
                 if test_SROCC > best_test_criterion:
                     print("Update best model using best_val_criterion ")
-                    torch.save(model.state_dict(), 'ckpts/' + str(datasets) + '_' + str(fold) + '_best_model.pth')
+                    torch.save(model.state_dict(), 'ckpts/' + str(datasets) + '_' + str(fold) + '_' + str(epoch_split)+'_best_model.pth')
                     # scio.savemat(trained_model_file+'.mat',{'y_pred':y_pred,'y_test':y_test})
-                    best[0:4] = [test_SROCC, test_KROCC, test_PLCC, test_RMSE]
                     best_test_criterion = test_SROCC  # update best val SROCC
+                    if test_SROCC > overall_best_test_criterion:
+                        best[0:4] = [test_SROCC, test_KROCC, test_PLCC, test_RMSE]
+                        overall_best_test_criterion = test_SROCC
 
                     print("Update the best Test results: SROCC={:.4f}, KROCC={:.4f}, PLCC={:.4f}, RMSE={:.4f}".format(test_SROCC, test_KROCC, test_PLCC, test_RMSE))
         print(datasets)
