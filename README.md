@@ -9,3 +9,9 @@ The motivation for this thesis started from the fact that as of today, no effici
 
 ## Framework
 ![Overview of the entire model](https://github.com/MichielCreemers/MMSIN/blob/main/imgs/complete_model.png)
+
+Our approach leverages two feature modalities to predict quality metrics. The first being features from the 3D data itself, while the second modality contains features extracted by first projecting a point cloud to a 2D plane. The network is shown in Figure 4.1. Features are extracted from two modalities using both a statistical machine learning modal and a deep learning model. These features are then enhanced through mutual guid-
+ance using symmetric cross-modal attention, resulting in a final feature representation consisting both of the original and enhanced features. Ultimately, this feature representation is decoded into a single quality prediction throughthe quality regression model.
+
+## Training your own model.
+
