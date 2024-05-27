@@ -1,0 +1,1139 @@
+*****************************************************************************
+The dataset(s) used is/are:  ['SJTU']
+*****************************************************************************
+Using GPU
+Starting fold 1/5
+Using Adam optimize with initial learning rate of 0.001
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+starting the training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Epoch 1 averaged training loss: 63.1446
+The current learning rate is 0.001000
+Epoch 1 training time cost: 2.9439 seconds
+Test results: SROCC=-0.2090, KROCC=-0.1288, PLCC=0.2821, RMSE=2.3019
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=-0.2090, KROCC=-0.1288, PLCC=0.2821, RMSE=2.3019
+Epoch 2 averaged training loss: 7.7551
+The current learning rate is 0.001000
+Epoch 2 training time cost: 2.4589 seconds
+Test results: SROCC=0.6760, KROCC=0.5036, PLCC=0.6987, RMSE=1.7165
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.6760, KROCC=0.5036, PLCC=0.6987, RMSE=1.7165
+Epoch 3 averaged training loss: 5.0663
+The current learning rate is 0.001000
+Epoch 3 training time cost: 2.6528 seconds
+Test results: SROCC=0.8164, KROCC=0.6327, PLCC=0.8759, RMSE=1.1575
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8164, KROCC=0.6327, PLCC=0.8759, RMSE=1.1575
+Epoch 4 averaged training loss: 4.6108
+The current learning rate is 0.001000
+Epoch 4 training time cost: 2.8051 seconds
+Test results: SROCC=0.8444, KROCC=0.6699, PLCC=0.8921, RMSE=1.0844
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8444, KROCC=0.6699, PLCC=0.8921, RMSE=1.0844
+Epoch 5 averaged training loss: 3.7108
+The current learning rate is 0.001000
+Epoch 5 training time cost: 2.7123 seconds
+Test results: SROCC=0.8131, KROCC=0.6257, PLCC=0.8726, RMSE=1.1720
+Epoch 6 averaged training loss: 4.0038
+The current learning rate is 0.001000
+Epoch 6 training time cost: 2.9043 seconds
+Test results: SROCC=0.8325, KROCC=0.6545, PLCC=0.8851, RMSE=1.1169
+Epoch 7 averaged training loss: 3.5674
+The current learning rate is 0.001000
+Epoch 7 training time cost: 2.5884 seconds
+Test results: SROCC=0.7865, KROCC=0.5934, PLCC=0.8372, RMSE=1.3121
+Epoch 8 averaged training loss: 3.9667
+The current learning rate is 0.000900
+Epoch 8 training time cost: 2.5233 seconds
+Test results: SROCC=0.8484, KROCC=0.6826, PLCC=0.8933, RMSE=1.0786
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8484, KROCC=0.6826, PLCC=0.8933, RMSE=1.0786
+Epoch 9 averaged training loss: 3.9324
+The current learning rate is 0.000900
+Epoch 9 training time cost: 2.7346 seconds
+Test results: SROCC=0.8409, KROCC=0.6657, PLCC=0.8948, RMSE=1.0711
+Epoch 10 averaged training loss: 3.2759
+The current learning rate is 0.000900
+Epoch 10 training time cost: 2.4696 seconds
+Test results: SROCC=0.8612, KROCC=0.6777, PLCC=0.8856, RMSE=1.1142
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8612, KROCC=0.6777, PLCC=0.8856, RMSE=1.1142
+Epoch 11 averaged training loss: 3.1048
+The current learning rate is 0.000900
+Epoch 11 training time cost: 2.4338 seconds
+Test results: SROCC=0.7857, KROCC=0.5927, PLCC=0.8330, RMSE=1.3275
+Epoch 12 averaged training loss: 4.0764
+The current learning rate is 0.000900
+Epoch 12 training time cost: 2.4170 seconds
+Test results: SROCC=0.8319, KROCC=0.6461, PLCC=0.8703, RMSE=1.1818
+Epoch 13 averaged training loss: 3.1774
+The current learning rate is 0.000900
+Epoch 13 training time cost: 2.4229 seconds
+Test results: SROCC=0.8169, KROCC=0.6306, PLCC=0.8916, RMSE=1.0863
+Epoch 14 averaged training loss: 3.5229
+The current learning rate is 0.000900
+Epoch 14 training time cost: 2.4960 seconds
+Test results: SROCC=0.8401, KROCC=0.6678, PLCC=0.8950, RMSE=1.0701
+Epoch 15 averaged training loss: 3.8623
+The current learning rate is 0.000900
+Epoch 15 training time cost: 2.6242 seconds
+Test results: SROCC=0.8196, KROCC=0.6426, PLCC=0.8337, RMSE=1.3250
+Epoch 16 averaged training loss: 3.7907
+The current learning rate is 0.000810
+Epoch 16 training time cost: 2.6786 seconds
+Test results: SROCC=0.8674, KROCC=0.6812, PLCC=0.9055, RMSE=1.0180
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8674, KROCC=0.6812, PLCC=0.9055, RMSE=1.0180
+Epoch 17 averaged training loss: 2.9975
+The current learning rate is 0.000810
+Epoch 17 training time cost: 2.8444 seconds
+Test results: SROCC=0.8586, KROCC=0.6777, PLCC=0.8808, RMSE=1.1362
+Epoch 18 averaged training loss: 2.7615
+The current learning rate is 0.000810
+Epoch 18 training time cost: 2.7276 seconds
+Test results: SROCC=0.7883, KROCC=0.5948, PLCC=0.8774, RMSE=1.1510
+Epoch 19 averaged training loss: 3.2266
+The current learning rate is 0.000810
+Epoch 19 training time cost: 2.6130 seconds
+Test results: SROCC=0.7635, KROCC=0.5766, PLCC=0.8378, RMSE=1.3100
+Epoch 20 averaged training loss: 3.9257
+The current learning rate is 0.000810
+Epoch 20 training time cost: 2.6101 seconds
+Test results: SROCC=0.8546, KROCC=0.6657, PLCC=0.8925, RMSE=1.0824
+Epoch 21 averaged training loss: 3.0561
+The current learning rate is 0.000810
+Epoch 21 training time cost: 2.5355 seconds
+Test results: SROCC=0.8551, KROCC=0.6791, PLCC=0.9033, RMSE=1.0292
+Epoch 22 averaged training loss: 3.7065
+The current learning rate is 0.000810
+Epoch 22 training time cost: 2.5705 seconds
+Test results: SROCC=0.7350, KROCC=0.5534, PLCC=0.8185, RMSE=1.3784
+Epoch 23 averaged training loss: 3.5845
+The current learning rate is 0.000810
+Epoch 23 training time cost: 2.5447 seconds
+Test results: SROCC=0.8520, KROCC=0.6706, PLCC=0.9089, RMSE=1.0005
+Epoch 24 averaged training loss: 3.2388
+The current learning rate is 0.000729
+Epoch 24 training time cost: 2.7462 seconds
+Test results: SROCC=0.6496, KROCC=0.4580, PLCC=0.8468, RMSE=1.2762
+Epoch 25 averaged training loss: 3.5362
+The current learning rate is 0.000729
+Epoch 25 training time cost: 2.7102 seconds
+Test results: SROCC=0.7589, KROCC=0.5675, PLCC=0.8585, RMSE=1.2304
+Epoch 26 averaged training loss: 3.4650
+The current learning rate is 0.000729
+Epoch 26 training time cost: 2.6600 seconds
+Test results: SROCC=0.8179, KROCC=0.6496, PLCC=0.8951, RMSE=1.0697
+Epoch 27 averaged training loss: 3.0359
+The current learning rate is 0.000729
+Epoch 27 training time cost: 2.6512 seconds
+Test results: SROCC=0.7698, KROCC=0.5920, PLCC=0.8713, RMSE=1.1776
+Epoch 28 averaged training loss: 3.6998
+The current learning rate is 0.000729
+Epoch 28 training time cost: 2.5082 seconds
+Test results: SROCC=0.8346, KROCC=0.6608, PLCC=0.8916, RMSE=1.0865
+Epoch 29 averaged training loss: 3.3466
+The current learning rate is 0.000729
+Epoch 29 training time cost: 2.4883 seconds
+Test results: SROCC=0.7309, KROCC=0.5513, PLCC=0.8539, RMSE=1.2489
+Epoch 30 averaged training loss: 3.8297
+The current learning rate is 0.000729
+Epoch 30 training time cost: 2.6732 seconds
+Test results: SROCC=0.8022, KROCC=0.6250, PLCC=0.8508, RMSE=1.2607
+Epoch 31 averaged training loss: 3.2507
+The current learning rate is 0.000729
+Epoch 31 training time cost: 2.5442 seconds
+Test results: SROCC=0.8330, KROCC=0.6517, PLCC=0.8825, RMSE=1.1285
+Epoch 32 averaged training loss: 3.5179
+The current learning rate is 0.000656
+Epoch 32 training time cost: 2.5487 seconds
+Test results: SROCC=0.8463, KROCC=0.6685, PLCC=0.9004, RMSE=1.0438
+Epoch 33 averaged training loss: 3.2976
+The current learning rate is 0.000656
+Epoch 33 training time cost: 2.4742 seconds
+Test results: SROCC=0.8524, KROCC=0.6629, PLCC=0.9033, RMSE=1.0295
+Epoch 34 averaged training loss: 3.4330
+The current learning rate is 0.000656
+Epoch 34 training time cost: 2.5696 seconds
+Test results: SROCC=0.8673, KROCC=0.6938, PLCC=0.9076, RMSE=1.0072
+Epoch 35 averaged training loss: 2.9176
+The current learning rate is 0.000656
+Epoch 35 training time cost: 2.6266 seconds
+Test results: SROCC=0.8848, KROCC=0.7149, PLCC=0.9160, RMSE=0.9628
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8848, KROCC=0.7149, PLCC=0.9160, RMSE=0.9628
+Epoch 36 averaged training loss: 3.4518
+The current learning rate is 0.000656
+Epoch 36 training time cost: 2.8366 seconds
+Test results: SROCC=0.9080, KROCC=0.7415, PLCC=0.9356, RMSE=0.8469
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.9080, KROCC=0.7415, PLCC=0.9356, RMSE=0.8469
+Epoch 37 averaged training loss: 2.7472
+The current learning rate is 0.000656
+Epoch 37 training time cost: 2.7497 seconds
+Test results: SROCC=0.8743, KROCC=0.7043, PLCC=0.9207, RMSE=0.9363
+Epoch 38 averaged training loss: 2.6211
+The current learning rate is 0.000656
+Epoch 38 training time cost: 2.5136 seconds
+Test results: SROCC=0.9128, KROCC=0.7514, PLCC=0.9422, RMSE=0.8040
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.9128, KROCC=0.7514, PLCC=0.9422, RMSE=0.8040
+Epoch 39 averaged training loss: 2.7777
+The current learning rate is 0.000656
+Epoch 39 training time cost: 2.4997 seconds
+Test results: SROCC=0.8298, KROCC=0.6594, PLCC=0.8990, RMSE=1.0508
+Epoch 40 averaged training loss: 2.9424
+The current learning rate is 0.000590
+Epoch 40 training time cost: 2.6853 seconds
+Test results: SROCC=0.8730, KROCC=0.7135, PLCC=0.9187, RMSE=0.9475
+Epoch 41 averaged training loss: 2.9432
+The current learning rate is 0.000590
+Epoch 41 training time cost: 2.5854 seconds
+Test results: SROCC=0.8696, KROCC=0.6924, PLCC=0.9188, RMSE=0.9470
+Epoch 42 averaged training loss: 2.3513
+The current learning rate is 0.000590
+Epoch 42 training time cost: 2.5517 seconds
+Test results: SROCC=0.8816, KROCC=0.7205, PLCC=0.9249, RMSE=0.9123
+Epoch 43 averaged training loss: 2.9185
+The current learning rate is 0.000590
+Epoch 43 training time cost: 2.4303 seconds
+Test results: SROCC=0.8585, KROCC=0.6833, PLCC=0.9027, RMSE=1.0325
+Epoch 44 averaged training loss: 2.8993
+The current learning rate is 0.000590
+Epoch 44 training time cost: 2.5616 seconds
+Test results: SROCC=0.8409, KROCC=0.6720, PLCC=0.8815, RMSE=1.1331
+Epoch 45 averaged training loss: 3.2295
+The current learning rate is 0.000590
+Epoch 45 training time cost: 2.6452 seconds
+Test results: SROCC=0.8683, KROCC=0.6952, PLCC=0.9175, RMSE=0.9542
+Epoch 46 averaged training loss: 3.1238
+The current learning rate is 0.000590
+Epoch 46 training time cost: 2.4774 seconds
+Test results: SROCC=0.8457, KROCC=0.6699, PLCC=0.8907, RMSE=1.0906
+Epoch 47 averaged training loss: 2.9024
+The current learning rate is 0.000590
+Epoch 47 training time cost: 2.7116 seconds
+Test results: SROCC=0.8124, KROCC=0.6384, PLCC=0.8899, RMSE=1.0946
+Epoch 48 averaged training loss: 2.7704
+The current learning rate is 0.000531
+Epoch 48 training time cost: 2.6042 seconds
+Test results: SROCC=0.8628, KROCC=0.6966, PLCC=0.9108, RMSE=0.9904
+Epoch 49 averaged training loss: 2.6021
+The current learning rate is 0.000531
+Epoch 49 training time cost: 2.4480 seconds
+Test results: SROCC=0.8694, KROCC=0.6973, PLCC=0.9157, RMSE=0.9640
+Epoch 50 averaged training loss: 2.8943
+The current learning rate is 0.000531
+Epoch 50 training time cost: 2.4246 seconds
+Test results: SROCC=0.8627, KROCC=0.6868, PLCC=0.9046, RMSE=1.0229
+['SJTU']
+The best Val results: SROCC=0.9128, KROCC=0.7514, PLCC=0.9422, RMSE=0.8040
+*************************************************************************************************************************
+Using GPU
+Starting fold 2/5
+Using Adam optimize with initial learning rate of 0.001
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+starting the training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Epoch 1 averaged training loss: 60.4704
+The current learning rate is 0.001000
+Epoch 1 training time cost: 2.4937 seconds
+Test results: SROCC=0.5923, KROCC=0.4187, PLCC=0.6188, RMSE=1.9689
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.5923, KROCC=0.4187, PLCC=0.6188, RMSE=1.9689
+Epoch 2 averaged training loss: 7.6845
+The current learning rate is 0.001000
+Epoch 2 training time cost: 2.4966 seconds
+Test results: SROCC=0.5401, KROCC=0.3934, PLCC=0.5937, RMSE=2.0169
+Epoch 3 averaged training loss: 5.4372
+The current learning rate is 0.001000
+Epoch 3 training time cost: 2.4530 seconds
+Test results: SROCC=0.8373, KROCC=0.6608, PLCC=0.8665, RMSE=1.2513
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8373, KROCC=0.6608, PLCC=0.8665, RMSE=1.2513
+Epoch 4 averaged training loss: 5.1431
+The current learning rate is 0.001000
+Epoch 4 training time cost: 2.4344 seconds
+Test results: SROCC=0.8301, KROCC=0.6461, PLCC=0.8325, RMSE=1.3887
+Epoch 5 averaged training loss: 4.7794
+The current learning rate is 0.001000
+Epoch 5 training time cost: 2.4160 seconds
+Test results: SROCC=0.8612, KROCC=0.6882, PLCC=0.9009, RMSE=1.0881
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8612, KROCC=0.6882, PLCC=0.9009, RMSE=1.0881
+Epoch 6 averaged training loss: 3.9569
+The current learning rate is 0.001000
+Epoch 6 training time cost: 2.6265 seconds
+Test results: SROCC=0.8435, KROCC=0.6496, PLCC=0.8702, RMSE=1.2348
+Epoch 7 averaged training loss: 4.5170
+The current learning rate is 0.001000
+Epoch 7 training time cost: 2.4846 seconds
+Test results: SROCC=0.8556, KROCC=0.6798, PLCC=0.8915, RMSE=1.1355
+Epoch 8 averaged training loss: 3.5581
+The current learning rate is 0.000900
+Epoch 8 training time cost: 2.3980 seconds
+Test results: SROCC=0.8649, KROCC=0.6798, PLCC=0.9020, RMSE=1.0821
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8649, KROCC=0.6798, PLCC=0.9020, RMSE=1.0821
+Epoch 9 averaged training loss: 3.9609
+The current learning rate is 0.000900
+Epoch 9 training time cost: 2.4322 seconds
+Test results: SROCC=0.8608, KROCC=0.6938, PLCC=0.9140, RMSE=1.0170
+Epoch 10 averaged training loss: 3.2987
+The current learning rate is 0.000900
+Epoch 10 training time cost: 2.4419 seconds
+Test results: SROCC=0.8579, KROCC=0.6805, PLCC=0.9069, RMSE=1.0558
+Epoch 11 averaged training loss: 4.0814
+The current learning rate is 0.000900
+Epoch 11 training time cost: 2.5202 seconds
+Test results: SROCC=0.8447, KROCC=0.6742, PLCC=0.8912, RMSE=1.1368
+Epoch 12 averaged training loss: 3.6578
+The current learning rate is 0.000900
+Epoch 12 training time cost: 2.4041 seconds
+Test results: SROCC=0.8308, KROCC=0.6566, PLCC=0.8908, RMSE=1.1388
+Epoch 13 averaged training loss: 3.6864
+The current learning rate is 0.000900
+Epoch 13 training time cost: 2.5904 seconds
+Test results: SROCC=0.7236, KROCC=0.5317, PLCC=0.7755, RMSE=1.5824
+Epoch 14 averaged training loss: 4.0599
+The current learning rate is 0.000900
+Epoch 14 training time cost: 2.4369 seconds
+Test results: SROCC=0.8331, KROCC=0.6419, PLCC=0.8930, RMSE=1.1282
+Epoch 15 averaged training loss: 4.6029
+The current learning rate is 0.000900
+Epoch 15 training time cost: 2.5362 seconds
+Test results: SROCC=0.8397, KROCC=0.6622, PLCC=0.8875, RMSE=1.1553
+Epoch 16 averaged training loss: 4.8257
+The current learning rate is 0.000810
+Epoch 16 training time cost: 2.4764 seconds
+Test results: SROCC=0.7646, KROCC=0.5633, PLCC=0.8567, RMSE=1.2928
+Epoch 17 averaged training loss: 4.0805
+The current learning rate is 0.000810
+Epoch 17 training time cost: 2.4869 seconds
+Test results: SROCC=0.8484, KROCC=0.6699, PLCC=0.8862, RMSE=1.1614
+Epoch 18 averaged training loss: 3.9359
+The current learning rate is 0.000810
+Epoch 18 training time cost: 2.4616 seconds
+Test results: SROCC=0.8516, KROCC=0.6671, PLCC=0.8912, RMSE=1.1370
+Epoch 19 averaged training loss: 3.3702
+The current learning rate is 0.000810
+Epoch 19 training time cost: 2.5439 seconds
+Test results: SROCC=0.8268, KROCC=0.6285, PLCC=0.8619, RMSE=1.2710
+Epoch 20 averaged training loss: 3.6797
+The current learning rate is 0.000810
+Epoch 20 training time cost: 2.7756 seconds
+Test results: SROCC=0.8479, KROCC=0.6706, PLCC=0.9066, RMSE=1.0580
+Epoch 21 averaged training loss: 3.0549
+The current learning rate is 0.000810
+Epoch 21 training time cost: 2.6277 seconds
+Test results: SROCC=0.8746, KROCC=0.7177, PLCC=0.9326, RMSE=0.9049
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8746, KROCC=0.7177, PLCC=0.9326, RMSE=0.9049
+Epoch 22 averaged training loss: 2.8699
+The current learning rate is 0.000810
+Epoch 22 training time cost: 2.5978 seconds
+Test results: SROCC=0.8926, KROCC=0.7254, PLCC=0.9271, RMSE=0.9393
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8926, KROCC=0.7254, PLCC=0.9271, RMSE=0.9393
+Epoch 23 averaged training loss: 3.4656
+The current learning rate is 0.000810
+Epoch 23 training time cost: 2.5263 seconds
+Test results: SROCC=0.8896, KROCC=0.7310, PLCC=0.9283, RMSE=0.9322
+Epoch 24 averaged training loss: 3.2534
+The current learning rate is 0.000729
+Epoch 24 training time cost: 2.5025 seconds
+Test results: SROCC=0.8743, KROCC=0.6987, PLCC=0.9164, RMSE=1.0031
+Epoch 25 averaged training loss: 3.3564
+The current learning rate is 0.000729
+Epoch 25 training time cost: 2.6137 seconds
+Test results: SROCC=0.8630, KROCC=0.6903, PLCC=0.9195, RMSE=0.9855
+Epoch 26 averaged training loss: 2.7892
+The current learning rate is 0.000729
+Epoch 26 training time cost: 2.4793 seconds
+Test results: SROCC=0.8460, KROCC=0.6475, PLCC=0.8832, RMSE=1.1758
+Epoch 27 averaged training loss: 3.0707
+The current learning rate is 0.000729
+Epoch 27 training time cost: 2.4872 seconds
+Test results: SROCC=0.8877, KROCC=0.7303, PLCC=0.9313, RMSE=0.9127
+Epoch 28 averaged training loss: 3.6307
+The current learning rate is 0.000729
+Epoch 28 training time cost: 2.5938 seconds
+Test results: SROCC=0.8001, KROCC=0.6089, PLCC=0.8522, RMSE=1.3113
+Epoch 29 averaged training loss: 2.6476
+The current learning rate is 0.000729
+Epoch 29 training time cost: 2.6504 seconds
+Test results: SROCC=0.8481, KROCC=0.6636, PLCC=0.9046, RMSE=1.0684
+Epoch 30 averaged training loss: 2.6146
+The current learning rate is 0.000729
+Epoch 30 training time cost: 2.6227 seconds
+Test results: SROCC=0.8566, KROCC=0.6749, PLCC=0.8981, RMSE=1.1023
+Epoch 31 averaged training loss: 3.3550
+The current learning rate is 0.000729
+Epoch 31 training time cost: 2.8374 seconds
+Test results: SROCC=0.8651, KROCC=0.6812, PLCC=0.9050, RMSE=1.0662
+Epoch 32 averaged training loss: 3.7246
+The current learning rate is 0.000656
+Epoch 32 training time cost: 2.6513 seconds
+Test results: SROCC=0.8469, KROCC=0.6685, PLCC=0.9001, RMSE=1.0920
+Epoch 33 averaged training loss: 2.9283
+The current learning rate is 0.000656
+Epoch 33 training time cost: 2.6242 seconds
+Test results: SROCC=0.8138, KROCC=0.6229, PLCC=0.8882, RMSE=1.1517
+Epoch 34 averaged training loss: 3.1556
+The current learning rate is 0.000656
+Epoch 34 training time cost: 2.6415 seconds
+Test results: SROCC=0.8609, KROCC=0.6980, PLCC=0.9160, RMSE=1.0055
+Epoch 35 averaged training loss: 2.8491
+The current learning rate is 0.000656
+Epoch 35 training time cost: 2.7607 seconds
+Test results: SROCC=0.7313, KROCC=0.5415, PLCC=0.7493, RMSE=1.6598
+Epoch 36 averaged training loss: 4.3141
+The current learning rate is 0.000656
+Epoch 36 training time cost: 2.5477 seconds
+Test results: SROCC=0.7652, KROCC=0.5661, PLCC=0.7994, RMSE=1.5058
+Epoch 37 averaged training loss: 3.5483
+The current learning rate is 0.000656
+Epoch 37 training time cost: 2.7263 seconds
+Test results: SROCC=0.8269, KROCC=0.6510, PLCC=0.8780, RMSE=1.2000
+Epoch 38 averaged training loss: 3.0890
+The current learning rate is 0.000656
+Epoch 38 training time cost: 2.8290 seconds
+Test results: SROCC=0.8365, KROCC=0.6580, PLCC=0.8474, RMSE=1.3307
+Epoch 39 averaged training loss: 3.5690
+The current learning rate is 0.000656
+Epoch 39 training time cost: 2.6376 seconds
+Test results: SROCC=0.8205, KROCC=0.6363, PLCC=0.8461, RMSE=1.3361
+Epoch 40 averaged training loss: 3.4865
+The current learning rate is 0.000590
+Epoch 40 training time cost: 2.6579 seconds
+Test results: SROCC=0.7860, KROCC=0.5962, PLCC=0.8361, RMSE=1.3750
+Epoch 41 averaged training loss: 4.6171
+The current learning rate is 0.000590
+Epoch 41 training time cost: 2.5893 seconds
+Test results: SROCC=0.7969, KROCC=0.5955, PLCC=0.8104, RMSE=1.4686
+Epoch 42 averaged training loss: 4.0929
+The current learning rate is 0.000590
+Epoch 42 training time cost: 2.6726 seconds
+Test results: SROCC=0.8506, KROCC=0.6629, PLCC=0.8823, RMSE=1.1798
+Epoch 43 averaged training loss: 4.3265
+The current learning rate is 0.000590
+Epoch 43 training time cost: 2.5957 seconds
+Test results: SROCC=0.7885, KROCC=0.6040, PLCC=0.8534, RMSE=1.3067
+Epoch 44 averaged training loss: 3.8594
+The current learning rate is 0.000590
+Epoch 44 training time cost: 2.4342 seconds
+Test results: SROCC=0.8223, KROCC=0.6313, PLCC=0.8450, RMSE=1.3404
+Epoch 45 averaged training loss: 3.1200
+The current learning rate is 0.000590
+Epoch 45 training time cost: 2.4543 seconds
+Test results: SROCC=0.7711, KROCC=0.5703, PLCC=0.8283, RMSE=1.4043
+Epoch 46 averaged training loss: 3.2229
+The current learning rate is 0.000590
+Epoch 46 training time cost: 2.4996 seconds
+Test results: SROCC=0.8582, KROCC=0.6685, PLCC=0.8828, RMSE=1.1775
+Epoch 47 averaged training loss: 3.2318
+The current learning rate is 0.000590
+Epoch 47 training time cost: 2.5010 seconds
+Test results: SROCC=0.8460, KROCC=0.6580, PLCC=0.8921, RMSE=1.1327
+Epoch 48 averaged training loss: 3.1595
+The current learning rate is 0.000531
+Epoch 48 training time cost: 2.9362 seconds
+Test results: SROCC=0.8593, KROCC=0.6819, PLCC=0.8925, RMSE=1.1307
+Epoch 49 averaged training loss: 3.4459
+The current learning rate is 0.000531
+Epoch 49 training time cost: 2.5408 seconds
+Test results: SROCC=0.8642, KROCC=0.6812, PLCC=0.9140, RMSE=1.0170
+Epoch 50 averaged training loss: 3.1694
+The current learning rate is 0.000531
+Epoch 50 training time cost: 2.4514 seconds
+Test results: SROCC=0.8677, KROCC=0.6882, PLCC=0.9092, RMSE=1.0434
+['SJTU']
+The best Val results: SROCC=0.8926, KROCC=0.7254, PLCC=0.9271, RMSE=0.9393
+*************************************************************************************************************************
+Using GPU
+Starting fold 3/5
+Using Adam optimize with initial learning rate of 0.001
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+starting the training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Epoch 1 averaged training loss: 51.3928
+The current learning rate is 0.001000
+Epoch 1 training time cost: 2.6148 seconds
+Test results: SROCC=0.2048, KROCC=0.1452, PLCC=0.4329, RMSE=2.1572
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.2048, KROCC=0.1452, PLCC=0.4329, RMSE=2.1572
+Epoch 2 averaged training loss: 5.8932
+The current learning rate is 0.001000
+Epoch 2 training time cost: 2.4992 seconds
+Test results: SROCC=0.4724, KROCC=0.3413, PLCC=0.5312, RMSE=2.0276
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.4724, KROCC=0.3413, PLCC=0.5312, RMSE=2.0276
+Epoch 3 averaged training loss: 4.9663
+The current learning rate is 0.001000
+Epoch 3 training time cost: 2.4433 seconds
+Test results: SROCC=0.7013, KROCC=0.5027, PLCC=0.7900, RMSE=1.4672
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.7013, KROCC=0.5027, PLCC=0.7900, RMSE=1.4672
+Epoch 4 averaged training loss: 5.3578
+The current learning rate is 0.001000
+Epoch 4 training time cost: 2.5740 seconds
+Test results: SROCC=0.7540, KROCC=0.5668, PLCC=0.7592, RMSE=1.5576
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.7540, KROCC=0.5668, PLCC=0.7592, RMSE=1.5576
+Epoch 5 averaged training loss: 5.2702
+The current learning rate is 0.001000
+Epoch 5 training time cost: 2.6652 seconds
+Test results: SROCC=0.4737, KROCC=0.3557, PLCC=0.6400, RMSE=1.8388
+Epoch 6 averaged training loss: 3.7858
+The current learning rate is 0.001000
+Epoch 6 training time cost: 2.4977 seconds
+Test results: SROCC=0.8217, KROCC=0.6418, PLCC=0.8587, RMSE=1.2265
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8217, KROCC=0.6418, PLCC=0.8587, RMSE=1.2265
+Epoch 7 averaged training loss: 3.8032
+The current learning rate is 0.001000
+Epoch 7 training time cost: 2.7008 seconds
+Test results: SROCC=0.8437, KROCC=0.6728, PLCC=0.8858, RMSE=1.1104
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8437, KROCC=0.6728, PLCC=0.8858, RMSE=1.1104
+Epoch 8 averaged training loss: 3.4056
+The current learning rate is 0.000900
+Epoch 8 training time cost: 2.5241 seconds
+Test results: SROCC=0.7633, KROCC=0.5503, PLCC=0.8387, RMSE=1.3034
+Epoch 9 averaged training loss: 3.7674
+The current learning rate is 0.000900
+Epoch 9 training time cost: 2.4570 seconds
+Test results: SROCC=0.8275, KROCC=0.6195, PLCC=0.8674, RMSE=1.1909
+Epoch 10 averaged training loss: 3.5266
+The current learning rate is 0.000900
+Epoch 10 training time cost: 2.4801 seconds
+Test results: SROCC=0.7720, KROCC=0.5748, PLCC=0.8386, RMSE=1.3038
+Epoch 11 averaged training loss: 3.5153
+The current learning rate is 0.000900
+Epoch 11 training time cost: 2.4860 seconds
+Test results: SROCC=0.8425, KROCC=0.6670, PLCC=0.8794, RMSE=1.1391
+Epoch 12 averaged training loss: 3.4449
+The current learning rate is 0.000900
+Epoch 12 training time cost: 2.4896 seconds
+Test results: SROCC=0.7919, KROCC=0.6043, PLCC=0.8582, RMSE=1.2285
+Epoch 13 averaged training loss: 3.2254
+The current learning rate is 0.000900
+Epoch 13 training time cost: 2.6485 seconds
+Test results: SROCC=0.8419, KROCC=0.6512, PLCC=0.8720, RMSE=1.1714
+Epoch 14 averaged training loss: 3.8375
+The current learning rate is 0.000900
+Epoch 14 training time cost: 2.6072 seconds
+Test results: SROCC=0.8240, KROCC=0.6526, PLCC=0.8853, RMSE=1.1127
+Epoch 15 averaged training loss: 3.3925
+The current learning rate is 0.000900
+Epoch 15 training time cost: 2.4720 seconds
+Test results: SROCC=0.8284, KROCC=0.6490, PLCC=0.8769, RMSE=1.1503
+Epoch 16 averaged training loss: 3.5062
+The current learning rate is 0.000810
+Epoch 16 training time cost: 2.6934 seconds
+Test results: SROCC=0.8441, KROCC=0.6685, PLCC=0.8864, RMSE=1.1080
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8441, KROCC=0.6685, PLCC=0.8864, RMSE=1.1080
+Epoch 17 averaged training loss: 3.6643
+The current learning rate is 0.000810
+Epoch 17 training time cost: 2.5025 seconds
+Test results: SROCC=0.7761, KROCC=0.5755, PLCC=0.8033, RMSE=1.4252
+Epoch 18 averaged training loss: 3.2667
+The current learning rate is 0.000810
+Epoch 18 training time cost: 2.4855 seconds
+Test results: SROCC=0.8480, KROCC=0.6807, PLCC=0.8833, RMSE=1.1218
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8480, KROCC=0.6807, PLCC=0.8833, RMSE=1.1218
+Epoch 19 averaged training loss: 3.3770
+The current learning rate is 0.000810
+Epoch 19 training time cost: 2.6598 seconds
+Test results: SROCC=0.8321, KROCC=0.6541, PLCC=0.8636, RMSE=1.2066
+Epoch 20 averaged training loss: 3.3773
+The current learning rate is 0.000810
+Epoch 20 training time cost: 2.5262 seconds
+Test results: SROCC=0.8380, KROCC=0.6663, PLCC=0.8881, RMSE=1.1000
+Epoch 21 averaged training loss: 3.1451
+The current learning rate is 0.000810
+Epoch 21 training time cost: 2.5305 seconds
+Test results: SROCC=0.8739, KROCC=0.6886, PLCC=0.8927, RMSE=1.0783
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8739, KROCC=0.6886, PLCC=0.8927, RMSE=1.0783
+Epoch 22 averaged training loss: 3.3423
+The current learning rate is 0.000810
+Epoch 22 training time cost: 2.5005 seconds
+Test results: SROCC=0.8674, KROCC=0.7103, PLCC=0.8965, RMSE=1.0602
+Epoch 23 averaged training loss: 3.6854
+The current learning rate is 0.000810
+Epoch 23 training time cost: 2.4861 seconds
+Test results: SROCC=0.8710, KROCC=0.7153, PLCC=0.9033, RMSE=1.0265
+Epoch 24 averaged training loss: 3.4675
+The current learning rate is 0.000729
+Epoch 24 training time cost: 2.4090 seconds
+Test results: SROCC=0.8127, KROCC=0.6476, PLCC=0.8543, RMSE=1.2440
+Epoch 25 averaged training loss: 2.8230
+The current learning rate is 0.000729
+Epoch 25 training time cost: 2.4452 seconds
+Test results: SROCC=0.8551, KROCC=0.6944, PLCC=0.8932, RMSE=1.0759
+Epoch 26 averaged training loss: 3.0220
+The current learning rate is 0.000729
+Epoch 26 training time cost: 2.4256 seconds
+Test results: SROCC=0.8680, KROCC=0.7175, PLCC=0.9005, RMSE=1.0407
+Epoch 27 averaged training loss: 2.6474
+The current learning rate is 0.000729
+Epoch 27 training time cost: 2.5220 seconds
+Test results: SROCC=0.8473, KROCC=0.6836, PLCC=0.8853, RMSE=1.1127
+Epoch 28 averaged training loss: 3.1597
+The current learning rate is 0.000729
+Epoch 28 training time cost: 2.5728 seconds
+Test results: SROCC=0.8397, KROCC=0.6728, PLCC=0.8910, RMSE=1.0866
+Epoch 29 averaged training loss: 2.7892
+The current learning rate is 0.000729
+Epoch 29 training time cost: 2.5746 seconds
+Test results: SROCC=0.8039, KROCC=0.6267, PLCC=0.8467, RMSE=1.2732
+Epoch 30 averaged training loss: 2.7715
+The current learning rate is 0.000729
+Epoch 30 training time cost: 2.4731 seconds
+Test results: SROCC=0.8433, KROCC=0.6706, PLCC=0.8858, RMSE=1.1103
+Epoch 31 averaged training loss: 3.0900
+The current learning rate is 0.000729
+Epoch 31 training time cost: 2.4979 seconds
+Test results: SROCC=0.8881, KROCC=0.7276, PLCC=0.9050, RMSE=1.0182
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8881, KROCC=0.7276, PLCC=0.9050, RMSE=1.0182
+Epoch 32 averaged training loss: 2.7776
+The current learning rate is 0.000656
+Epoch 32 training time cost: 2.4938 seconds
+Test results: SROCC=0.8419, KROCC=0.6641, PLCC=0.8869, RMSE=1.1057
+Epoch 33 averaged training loss: 2.8575
+The current learning rate is 0.000656
+Epoch 33 training time cost: 2.4873 seconds
+Test results: SROCC=0.8645, KROCC=0.6930, PLCC=0.8973, RMSE=1.0561
+Epoch 34 averaged training loss: 2.8313
+The current learning rate is 0.000656
+Epoch 34 training time cost: 2.5834 seconds
+Test results: SROCC=0.8681, KROCC=0.7088, PLCC=0.9010, RMSE=1.0382
+Epoch 35 averaged training loss: 2.8009
+The current learning rate is 0.000656
+Epoch 35 training time cost: 2.5361 seconds
+Test results: SROCC=0.8302, KROCC=0.6353, PLCC=0.8677, RMSE=1.1894
+Epoch 36 averaged training loss: 3.0175
+The current learning rate is 0.000656
+Epoch 36 training time cost: 2.5029 seconds
+Test results: SROCC=0.8292, KROCC=0.6627, PLCC=0.8764, RMSE=1.1525
+Epoch 37 averaged training loss: 4.6440
+The current learning rate is 0.000656
+Epoch 37 training time cost: 2.7023 seconds
+Test results: SROCC=0.6963, KROCC=0.5222, PLCC=0.7243, RMSE=1.6500
+Epoch 38 averaged training loss: 5.5386
+The current learning rate is 0.000656
+Epoch 38 training time cost: 2.5331 seconds
+Test results: SROCC=0.7913, KROCC=0.5964, PLCC=0.8446, RMSE=1.2811
+Epoch 39 averaged training loss: 4.0492
+The current learning rate is 0.000656
+Epoch 39 training time cost: 2.4420 seconds
+Test results: SROCC=0.8053, KROCC=0.6267, PLCC=0.8559, RMSE=1.2377
+Epoch 40 averaged training loss: 3.8194
+The current learning rate is 0.000590
+Epoch 40 training time cost: 2.6248 seconds
+Test results: SROCC=0.8517, KROCC=0.6894, PLCC=0.8888, RMSE=1.0967
+Epoch 41 averaged training loss: 2.9400
+The current learning rate is 0.000590
+Epoch 41 training time cost: 2.4833 seconds
+Test results: SROCC=0.8382, KROCC=0.6742, PLCC=0.8811, RMSE=1.1317
+Epoch 42 averaged training loss: 2.9835
+The current learning rate is 0.000590
+Epoch 42 training time cost: 2.4910 seconds
+Test results: SROCC=0.8409, KROCC=0.6685, PLCC=0.8716, RMSE=1.1730
+Epoch 43 averaged training loss: 2.9183
+The current learning rate is 0.000590
+Epoch 43 training time cost: 2.4822 seconds
+Test results: SROCC=0.8477, KROCC=0.6757, PLCC=0.8857, RMSE=1.1108
+Epoch 44 averaged training loss: 2.9157
+The current learning rate is 0.000590
+Epoch 44 training time cost: 2.4353 seconds
+Test results: SROCC=0.8852, KROCC=0.7290, PLCC=0.9121, RMSE=0.9810
+Epoch 45 averaged training loss: 3.5439
+The current learning rate is 0.000590
+Epoch 45 training time cost: 2.6378 seconds
+Test results: SROCC=0.8418, KROCC=0.6742, PLCC=0.8898, RMSE=1.0920
+Epoch 46 averaged training loss: 2.5082
+The current learning rate is 0.000590
+Epoch 46 training time cost: 2.8757 seconds
+Test results: SROCC=0.9015, KROCC=0.7514, PLCC=0.9152, RMSE=0.9642
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.9015, KROCC=0.7514, PLCC=0.9152, RMSE=0.9642
+Epoch 47 averaged training loss: 3.1128
+The current learning rate is 0.000590
+Epoch 47 training time cost: 2.7031 seconds
+Test results: SROCC=0.8253, KROCC=0.6562, PLCC=0.8735, RMSE=1.1651
+Epoch 48 averaged training loss: 3.3969
+The current learning rate is 0.000531
+Epoch 48 training time cost: 2.8537 seconds
+Test results: SROCC=0.8357, KROCC=0.6656, PLCC=0.8771, RMSE=1.1493
+Epoch 49 averaged training loss: 3.0341
+The current learning rate is 0.000531
+Epoch 49 training time cost: 2.8746 seconds
+Test results: SROCC=0.8621, KROCC=0.7038, PLCC=0.8839, RMSE=1.1191
+Epoch 50 averaged training loss: 3.2610
+The current learning rate is 0.000531
+Epoch 50 training time cost: 2.7162 seconds
+Test results: SROCC=0.8282, KROCC=0.6620, PLCC=0.8756, RMSE=1.1561
+['SJTU']
+The best Val results: SROCC=0.9015, KROCC=0.7514, PLCC=0.9152, RMSE=0.9642
+*************************************************************************************************************************
+Using GPU
+Starting fold 4/5
+Using Adam optimize with initial learning rate of 0.001
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+starting the training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Epoch 1 averaged training loss: 48.6189
+The current learning rate is 0.001000
+Epoch 1 training time cost: 2.5927 seconds
+Test results: SROCC=0.2112, KROCC=0.1384, PLCC=0.4330, RMSE=2.1559
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.2112, KROCC=0.1384, PLCC=0.4330, RMSE=2.1559
+Epoch 2 averaged training loss: 6.2664
+The current learning rate is 0.001000
+Epoch 2 training time cost: 2.6526 seconds
+Test results: SROCC=0.7014, KROCC=0.5024, PLCC=0.7412, RMSE=1.6055
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.7014, KROCC=0.5024, PLCC=0.7412, RMSE=1.6055
+Epoch 3 averaged training loss: 4.5525
+The current learning rate is 0.001000
+Epoch 3 training time cost: 2.6886 seconds
+Test results: SROCC=0.7943, KROCC=0.5969, PLCC=0.8441, RMSE=1.2825
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.7943, KROCC=0.5969, PLCC=0.8441, RMSE=1.2825
+Epoch 4 averaged training loss: 4.5575
+The current learning rate is 0.001000
+Epoch 4 training time cost: 3.0948 seconds
+Test results: SROCC=0.7256, KROCC=0.5277, PLCC=0.8163, RMSE=1.3815
+Epoch 5 averaged training loss: 3.7816
+The current learning rate is 0.001000
+Epoch 5 training time cost: 2.9925 seconds
+Test results: SROCC=0.8394, KROCC=0.6430, PLCC=0.8788, RMSE=1.1411
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8394, KROCC=0.6430, PLCC=0.8788, RMSE=1.1411
+Epoch 6 averaged training loss: 4.3177
+The current learning rate is 0.001000
+Epoch 6 training time cost: 2.6802 seconds
+Test results: SROCC=0.8331, KROCC=0.6343, PLCC=0.8831, RMSE=1.1223
+Epoch 7 averaged training loss: 4.3861
+The current learning rate is 0.001000
+Epoch 7 training time cost: 2.6781 seconds
+Test results: SROCC=0.8270, KROCC=0.6315, PLCC=0.8935, RMSE=1.0743
+Epoch 8 averaged training loss: 4.5539
+The current learning rate is 0.000900
+Epoch 8 training time cost: 2.6510 seconds
+Test results: SROCC=0.8543, KROCC=0.6697, PLCC=0.8944, RMSE=1.0695
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8543, KROCC=0.6697, PLCC=0.8944, RMSE=1.0695
+Epoch 9 averaged training loss: 3.7378
+The current learning rate is 0.000900
+Epoch 9 training time cost: 2.9039 seconds
+Test results: SROCC=0.8378, KROCC=0.6509, PLCC=0.8968, RMSE=1.0582
+Epoch 10 averaged training loss: 4.2527
+The current learning rate is 0.000900
+Epoch 10 training time cost: 3.1122 seconds
+Test results: SROCC=0.8256, KROCC=0.6394, PLCC=0.8932, RMSE=1.0755
+Epoch 11 averaged training loss: 4.3401
+The current learning rate is 0.000900
+Epoch 11 training time cost: 2.8741 seconds
+Test results: SROCC=0.8434, KROCC=0.6639, PLCC=0.9041, RMSE=1.0221
+Epoch 12 averaged training loss: 3.4925
+The current learning rate is 0.000900
+Epoch 12 training time cost: 2.6788 seconds
+Test results: SROCC=0.7827, KROCC=0.5832, PLCC=0.8647, RMSE=1.2014
+Epoch 13 averaged training loss: 3.3490
+The current learning rate is 0.000900
+Epoch 13 training time cost: 2.7943 seconds
+Test results: SROCC=0.8410, KROCC=0.6668, PLCC=0.8896, RMSE=1.0924
+Epoch 14 averaged training loss: 3.5206
+The current learning rate is 0.000900
+Epoch 14 training time cost: 2.7273 seconds
+Test results: SROCC=0.8172, KROCC=0.6315, PLCC=0.8939, RMSE=1.0722
+Epoch 15 averaged training loss: 3.5752
+The current learning rate is 0.000900
+Epoch 15 training time cost: 2.5953 seconds
+Test results: SROCC=0.8295, KROCC=0.6430, PLCC=0.8804, RMSE=1.1343
+Epoch 16 averaged training loss: 3.6161
+The current learning rate is 0.000810
+Epoch 16 training time cost: 2.7858 seconds
+Test results: SROCC=0.8975, KROCC=0.7389, PLCC=0.9240, RMSE=0.9148
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8975, KROCC=0.7389, PLCC=0.9240, RMSE=0.9148
+Epoch 17 averaged training loss: 3.3354
+The current learning rate is 0.000810
+Epoch 17 training time cost: 2.9566 seconds
+Test results: SROCC=0.8456, KROCC=0.6603, PLCC=0.8881, RMSE=1.0994
+Epoch 18 averaged training loss: 3.0030
+The current learning rate is 0.000810
+Epoch 18 training time cost: 2.7796 seconds
+Test results: SROCC=0.8142, KROCC=0.6380, PLCC=0.8965, RMSE=1.0596
+Epoch 19 averaged training loss: 3.6552
+The current learning rate is 0.000810
+Epoch 19 training time cost: 2.7483 seconds
+Test results: SROCC=0.8195, KROCC=0.6387, PLCC=0.8979, RMSE=1.0527
+Epoch 20 averaged training loss: 2.9580
+The current learning rate is 0.000810
+Epoch 20 training time cost: 2.6850 seconds
+Test results: SROCC=0.8344, KROCC=0.6459, PLCC=0.8839, RMSE=1.1184
+Epoch 21 averaged training loss: 2.9698
+The current learning rate is 0.000810
+Epoch 21 training time cost: 2.7461 seconds
+Test results: SROCC=0.7993, KROCC=0.6026, PLCC=0.8875, RMSE=1.1022
+Epoch 22 averaged training loss: 3.0009
+The current learning rate is 0.000810
+Epoch 22 training time cost: 2.7514 seconds
+Test results: SROCC=0.8479, KROCC=0.6783, PLCC=0.9110, RMSE=0.9866
+Epoch 23 averaged training loss: 3.4801
+The current learning rate is 0.000810
+Epoch 23 training time cost: 2.6623 seconds
+Test results: SROCC=0.8750, KROCC=0.6920, PLCC=0.9134, RMSE=0.9735
+Epoch 24 averaged training loss: 3.2761
+The current learning rate is 0.000729
+Epoch 24 training time cost: 2.6630 seconds
+Test results: SROCC=0.8459, KROCC=0.6718, PLCC=0.9059, RMSE=1.0127
+Epoch 25 averaged training loss: 2.9854
+The current learning rate is 0.000729
+Epoch 25 training time cost: 2.6110 seconds
+Test results: SROCC=0.8593, KROCC=0.6769, PLCC=0.9153, RMSE=0.9632
+Epoch 26 averaged training loss: 3.0260
+The current learning rate is 0.000729
+Epoch 26 training time cost: 2.6497 seconds
+Test results: SROCC=0.8331, KROCC=0.6589, PLCC=0.9068, RMSE=1.0085
+Epoch 27 averaged training loss: 2.4144
+The current learning rate is 0.000729
+Epoch 27 training time cost: 2.7128 seconds
+Test results: SROCC=0.8406, KROCC=0.6754, PLCC=0.9091, RMSE=0.9965
+Epoch 28 averaged training loss: 2.8044
+The current learning rate is 0.000729
+Epoch 28 training time cost: 2.8318 seconds
+Test results: SROCC=0.8098, KROCC=0.6329, PLCC=0.8930, RMSE=1.0765
+Epoch 29 averaged training loss: 2.6710
+The current learning rate is 0.000729
+Epoch 29 training time cost: 2.6464 seconds
+Test results: SROCC=0.7246, KROCC=0.5205, PLCC=0.7714, RMSE=1.5221
+Epoch 30 averaged training loss: 3.1329
+The current learning rate is 0.000729
+Epoch 30 training time cost: 2.8291 seconds
+Test results: SROCC=0.8300, KROCC=0.6444, PLCC=0.8945, RMSE=1.0693
+Epoch 31 averaged training loss: 3.3128
+The current learning rate is 0.000729
+Epoch 31 training time cost: 2.6711 seconds
+Test results: SROCC=0.8332, KROCC=0.6603, PLCC=0.9084, RMSE=1.0000
+Epoch 32 averaged training loss: 3.6925
+The current learning rate is 0.000656
+Epoch 32 training time cost: 2.7116 seconds
+Test results: SROCC=0.8667, KROCC=0.6762, PLCC=0.9052, RMSE=1.0163
+Epoch 33 averaged training loss: 3.1624
+The current learning rate is 0.000656
+Epoch 33 training time cost: 2.6558 seconds
+Test results: SROCC=0.8325, KROCC=0.6545, PLCC=0.9036, RMSE=1.0245
+Epoch 34 averaged training loss: 3.0401
+The current learning rate is 0.000656
+Epoch 34 training time cost: 2.6385 seconds
+Test results: SROCC=0.8016, KROCC=0.6156, PLCC=0.8790, RMSE=1.1405
+Epoch 35 averaged training loss: 3.1833
+The current learning rate is 0.000656
+Epoch 35 training time cost: 2.6615 seconds
+Test results: SROCC=0.8341, KROCC=0.6488, PLCC=0.8934, RMSE=1.0745
+Epoch 36 averaged training loss: 2.8335
+The current learning rate is 0.000656
+Epoch 36 training time cost: 2.6722 seconds
+Test results: SROCC=0.8435, KROCC=0.6495, PLCC=0.8944, RMSE=1.0699
+Epoch 37 averaged training loss: 2.5560
+The current learning rate is 0.000656
+Epoch 37 training time cost: 2.8343 seconds
+Test results: SROCC=0.8136, KROCC=0.6444, PLCC=0.9008, RMSE=1.0383
+Epoch 38 averaged training loss: 2.4309
+The current learning rate is 0.000656
+Epoch 38 training time cost: 2.7100 seconds
+Test results: SROCC=0.8673, KROCC=0.6913, PLCC=0.9197, RMSE=0.9392
+Epoch 39 averaged training loss: 2.7873
+The current learning rate is 0.000656
+Epoch 39 training time cost: 2.9064 seconds
+Test results: SROCC=0.8550, KROCC=0.6632, PLCC=0.9072, RMSE=1.0060
+Epoch 40 averaged training loss: 2.3832
+The current learning rate is 0.000590
+Epoch 40 training time cost: 2.8022 seconds
+Test results: SROCC=0.8234, KROCC=0.6264, PLCC=0.8738, RMSE=1.1631
+Epoch 41 averaged training loss: 3.0607
+The current learning rate is 0.000590
+Epoch 41 training time cost: 2.6775 seconds
+Test results: SROCC=0.8262, KROCC=0.6437, PLCC=0.8898, RMSE=1.0914
+Epoch 42 averaged training loss: 2.8715
+The current learning rate is 0.000590
+Epoch 42 training time cost: 2.6723 seconds
+Test results: SROCC=0.8789, KROCC=0.6956, PLCC=0.9161, RMSE=0.9589
+Epoch 43 averaged training loss: 2.3317
+The current learning rate is 0.000590
+Epoch 43 training time cost: 2.7205 seconds
+Test results: SROCC=0.8695, KROCC=0.6862, PLCC=0.9061, RMSE=1.0120
+Epoch 44 averaged training loss: 4.4870
+The current learning rate is 0.000590
+Epoch 44 training time cost: 2.6320 seconds
+Test results: SROCC=0.6843, KROCC=0.4887, PLCC=0.8057, RMSE=1.4165
+Epoch 45 averaged training loss: 3.6155
+The current learning rate is 0.000590
+Epoch 45 training time cost: 2.6221 seconds
+Test results: SROCC=0.7984, KROCC=0.6170, PLCC=0.8655, RMSE=1.1980
+Epoch 46 averaged training loss: 2.9188
+The current learning rate is 0.000590
+Epoch 46 training time cost: 2.8568 seconds
+Test results: SROCC=0.7510, KROCC=0.5558, PLCC=0.8658, RMSE=1.1968
+Epoch 47 averaged training loss: 3.6593
+The current learning rate is 0.000590
+Epoch 47 training time cost: 2.8473 seconds
+Test results: SROCC=0.8208, KROCC=0.6351, PLCC=0.8869, RMSE=1.1047
+Epoch 48 averaged training loss: 3.0757
+The current learning rate is 0.000531
+Epoch 48 training time cost: 2.9939 seconds
+Test results: SROCC=0.7895, KROCC=0.6185, PLCC=0.8820, RMSE=1.1271
+Epoch 49 averaged training loss: 3.0674
+The current learning rate is 0.000531
+Epoch 49 training time cost: 3.0123 seconds
+Test results: SROCC=0.8154, KROCC=0.6394, PLCC=0.9013, RMSE=1.0362
+Epoch 50 averaged training loss: 2.9643
+The current learning rate is 0.000531
+Epoch 50 training time cost: 2.8613 seconds
+Test results: SROCC=0.8469, KROCC=0.6495, PLCC=0.8878, RMSE=1.1008
+['SJTU']
+The best Val results: SROCC=0.8975, KROCC=0.7389, PLCC=0.9240, RMSE=0.9148
+*************************************************************************************************************************
+Using GPU
+Starting fold 5/5
+Using Adam optimize with initial learning rate of 0.001
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+starting the training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Epoch 1 averaged training loss: 71.2922
+The current learning rate is 0.001000
+Epoch 1 training time cost: 2.8725 seconds
+Test results: SROCC=0.0575, KROCC=0.0422, PLCC=nan, RMSE=2.4124
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.0575, KROCC=0.0422, PLCC=nan, RMSE=2.4124
+Epoch 2 averaged training loss: 7.7410
+The current learning rate is 0.001000
+Epoch 2 training time cost: 2.7585 seconds
+Test results: SROCC=0.4350, KROCC=0.3190, PLCC=0.4525, RMSE=2.1513
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.4350, KROCC=0.3190, PLCC=0.4525, RMSE=2.1513
+Epoch 3 averaged training loss: 5.5628
+The current learning rate is 0.001000
+Epoch 3 training time cost: 2.8341 seconds
+Test results: SROCC=0.6772, KROCC=0.5050, PLCC=0.7362, RMSE=1.6327
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.6772, KROCC=0.5050, PLCC=0.7362, RMSE=1.6327
+Epoch 4 averaged training loss: 4.4987
+The current learning rate is 0.001000
+Epoch 4 training time cost: 3.0436 seconds
+Test results: SROCC=0.6461, KROCC=0.4625, PLCC=0.7029, RMSE=1.7159
+Epoch 5 averaged training loss: 4.9333
+The current learning rate is 0.001000
+Epoch 5 training time cost: 3.1441 seconds
+Test results: SROCC=0.8039, KROCC=0.6096, PLCC=0.8326, RMSE=1.3360
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8039, KROCC=0.6096, PLCC=0.8326, RMSE=1.3360
+Epoch 6 averaged training loss: 3.7928
+The current learning rate is 0.001000
+Epoch 6 training time cost: 2.7226 seconds
+Test results: SROCC=0.8403, KROCC=0.6428, PLCC=0.8664, RMSE=1.2045
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8403, KROCC=0.6428, PLCC=0.8664, RMSE=1.2045
+Epoch 7 averaged training loss: 3.6797
+The current learning rate is 0.001000
+Epoch 7 training time cost: 2.8359 seconds
+Test results: SROCC=0.8156, KROCC=0.6197, PLCC=0.8591, RMSE=1.2347
+Epoch 8 averaged training loss: 4.1268
+The current learning rate is 0.000900
+Epoch 8 training time cost: 2.8705 seconds
+Test results: SROCC=0.7090, KROCC=0.4978, PLCC=0.7769, RMSE=1.5190
+Epoch 9 averaged training loss: 3.5702
+The current learning rate is 0.000900
+Epoch 9 training time cost: 2.9783 seconds
+Test results: SROCC=0.8418, KROCC=0.6528, PLCC=0.8734, RMSE=1.1747
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8418, KROCC=0.6528, PLCC=0.8734, RMSE=1.1747
+Epoch 10 averaged training loss: 2.8450
+The current learning rate is 0.000900
+Epoch 10 training time cost: 2.7513 seconds
+Test results: SROCC=0.5860, KROCC=0.4142, PLCC=0.7068, RMSE=1.7066
+Epoch 11 averaged training loss: 2.9685
+The current learning rate is 0.000900
+Epoch 11 training time cost: 3.1132 seconds
+Test results: SROCC=0.8625, KROCC=0.6730, PLCC=0.8976, RMSE=1.0632
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8625, KROCC=0.6730, PLCC=0.8976, RMSE=1.0632
+Epoch 12 averaged training loss: 3.4579
+The current learning rate is 0.000900
+Epoch 12 training time cost: 3.0788 seconds
+Test results: SROCC=0.8834, KROCC=0.6975, PLCC=0.8941, RMSE=1.0806
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8834, KROCC=0.6975, PLCC=0.8941, RMSE=1.0806
+Epoch 13 averaged training loss: 4.5037
+The current learning rate is 0.000900
+Epoch 13 training time cost: 3.0559 seconds
+Test results: SROCC=0.8838, KROCC=0.6932, PLCC=0.9076, RMSE=1.0130
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8838, KROCC=0.6932, PLCC=0.9076, RMSE=1.0130
+Epoch 14 averaged training loss: 3.6477
+The current learning rate is 0.000900
+Epoch 14 training time cost: 3.0161 seconds
+Test results: SROCC=0.7544, KROCC=0.5483, PLCC=0.7921, RMSE=1.4726
+Epoch 15 averaged training loss: 4.0531
+The current learning rate is 0.000900
+Epoch 15 training time cost: 2.7777 seconds
+Test results: SROCC=0.7768, KROCC=0.5699, PLCC=0.8481, RMSE=1.2781
+Epoch 16 averaged training loss: 3.2441
+The current learning rate is 0.000810
+Epoch 16 training time cost: 2.6848 seconds
+Test results: SROCC=0.8266, KROCC=0.6154, PLCC=0.8687, RMSE=1.1948
+Epoch 17 averaged training loss: 2.9502
+The current learning rate is 0.000810
+Epoch 17 training time cost: 2.6355 seconds
+Test results: SROCC=0.7833, KROCC=0.5923, PLCC=0.8093, RMSE=1.4169
+Epoch 18 averaged training loss: 3.0214
+The current learning rate is 0.000810
+Epoch 18 training time cost: 2.6432 seconds
+Test results: SROCC=0.7560, KROCC=0.5404, PLCC=0.8345, RMSE=1.3292
+Epoch 19 averaged training loss: 3.9466
+The current learning rate is 0.000810
+Epoch 19 training time cost: 2.7270 seconds
+Test results: SROCC=0.6802, KROCC=0.4841, PLCC=0.6992, RMSE=1.7246
+Epoch 20 averaged training loss: 3.6330
+The current learning rate is 0.000810
+Epoch 20 training time cost: 2.7699 seconds
+Test results: SROCC=0.7856, KROCC=0.5865, PLCC=0.8322, RMSE=1.3376
+Epoch 21 averaged training loss: 3.3921
+The current learning rate is 0.000810
+Epoch 21 training time cost: 2.6690 seconds
+Test results: SROCC=0.8091, KROCC=0.6024, PLCC=0.8229, RMSE=1.3708
+Epoch 22 averaged training loss: 2.9102
+The current learning rate is 0.000810
+Epoch 22 training time cost: 2.6472 seconds
+Test results: SROCC=0.8101, KROCC=0.6002, PLCC=0.8609, RMSE=1.2274
+Epoch 23 averaged training loss: 2.8499
+The current learning rate is 0.000810
+Epoch 23 training time cost: 2.7027 seconds
+Test results: SROCC=0.8103, KROCC=0.6168, PLCC=0.8543, RMSE=1.2540
+Epoch 24 averaged training loss: 3.7247
+The current learning rate is 0.000729
+Epoch 24 training time cost: 2.7577 seconds
+Test results: SROCC=0.7684, KROCC=0.5642, PLCC=0.8709, RMSE=1.1858
+Epoch 25 averaged training loss: 3.3253
+The current learning rate is 0.000729
+Epoch 25 training time cost: 2.8119 seconds
+Test results: SROCC=0.8861, KROCC=0.6925, PLCC=0.9116, RMSE=0.9919
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.8861, KROCC=0.6925, PLCC=0.9116, RMSE=0.9919
+Epoch 26 averaged training loss: 2.9983
+The current learning rate is 0.000729
+Epoch 26 training time cost: 2.7728 seconds
+Test results: SROCC=0.7813, KROCC=0.5800, PLCC=0.8650, RMSE=1.2105
+Epoch 27 averaged training loss: 2.6634
+The current learning rate is 0.000729
+Epoch 27 training time cost: 2.7625 seconds
+Test results: SROCC=0.8357, KROCC=0.6543, PLCC=0.8625, RMSE=1.2208
+Epoch 28 averaged training loss: 3.6828
+The current learning rate is 0.000729
+Epoch 28 training time cost: 2.7880 seconds
+Test results: SROCC=0.9084, KROCC=0.7300, PLCC=0.9228, RMSE=0.9294
+Update best model using best_val_criterion 
+Update the best Test results: SROCC=0.9084, KROCC=0.7300, PLCC=0.9228, RMSE=0.9294
+Epoch 29 averaged training loss: 3.0524
+The current learning rate is 0.000729
+Epoch 29 training time cost: 2.8739 seconds
+Test results: SROCC=0.7897, KROCC=0.5923, PLCC=0.8575, RMSE=1.2411
+Epoch 30 averaged training loss: 3.0171
+The current learning rate is 0.000729
+Epoch 30 training time cost: 2.8038 seconds
+Test results: SROCC=0.8279, KROCC=0.6262, PLCC=0.8677, RMSE=1.1993
+Epoch 31 averaged training loss: 3.0854
+The current learning rate is 0.000729
+Epoch 31 training time cost: 2.7400 seconds
+Test results: SROCC=0.8143, KROCC=0.6089, PLCC=0.8552, RMSE=1.2505
+Epoch 32 averaged training loss: 3.2291
+The current learning rate is 0.000656
+Epoch 32 training time cost: 2.9688 seconds
+Test results: SROCC=0.8165, KROCC=0.6211, PLCC=0.8653, RMSE=1.2091
+Epoch 33 averaged training loss: 4.1103
+The current learning rate is 0.000656
+Epoch 33 training time cost: 2.8676 seconds
+Test results: SROCC=0.8599, KROCC=0.6694, PLCC=0.8999, RMSE=1.0518
+Epoch 34 averaged training loss: 3.1280
+The current learning rate is 0.000656
+Epoch 34 training time cost: 2.7574 seconds
+Test results: SROCC=0.7736, KROCC=0.5815, PLCC=0.8517, RMSE=1.2640
+Epoch 35 averaged training loss: 2.7783
+The current learning rate is 0.000656
+Epoch 35 training time cost: 2.8109 seconds
+Test results: SROCC=0.8409, KROCC=0.6478, PLCC=0.8788, RMSE=1.1511
+Epoch 36 averaged training loss: 2.4021
+The current learning rate is 0.000656
+Epoch 36 training time cost: 2.7198 seconds
+Test results: SROCC=0.8890, KROCC=0.7033, PLCC=0.9046, RMSE=1.0282
+Epoch 37 averaged training loss: 3.2236
+The current learning rate is 0.000656
+Epoch 37 training time cost: 2.7812 seconds
+Test results: SROCC=0.7837, KROCC=0.5764, PLCC=0.8533, RMSE=1.2580
+Epoch 38 averaged training loss: 2.5674
+The current learning rate is 0.000656
+Epoch 38 training time cost: 2.6934 seconds
+Test results: SROCC=0.8553, KROCC=0.6615, PLCC=0.8995, RMSE=1.0543
+Epoch 39 averaged training loss: 2.3457
+The current learning rate is 0.000656
+Epoch 39 training time cost: 2.9752 seconds
+Test results: SROCC=0.8153, KROCC=0.6096, PLCC=0.8832, RMSE=1.1313
+Epoch 40 averaged training loss: 2.7318
+The current learning rate is 0.000590
+Epoch 40 training time cost: 2.8542 seconds
+Test results: SROCC=0.8548, KROCC=0.6579, PLCC=0.8917, RMSE=1.0921
+Epoch 41 averaged training loss: 2.4842
+The current learning rate is 0.000590
+Epoch 41 training time cost: 2.8264 seconds
+Test results: SROCC=0.8039, KROCC=0.5988, PLCC=0.8651, RMSE=1.2102
+Epoch 42 averaged training loss: 2.1018
+The current learning rate is 0.000590
+Epoch 42 training time cost: 2.8416 seconds
+Test results: SROCC=0.8773, KROCC=0.6954, PLCC=0.9063, RMSE=1.0196
+Epoch 43 averaged training loss: 2.3250
+The current learning rate is 0.000590
+Epoch 43 training time cost: 2.7401 seconds
+Test results: SROCC=0.8843, KROCC=0.7012, PLCC=0.8904, RMSE=1.0980
+Epoch 44 averaged training loss: 2.2967
+The current learning rate is 0.000590
+Epoch 44 training time cost: 2.8443 seconds
+Test results: SROCC=0.8611, KROCC=0.6745, PLCC=0.8856, RMSE=1.1203
+Epoch 45 averaged training loss: 2.9558
+The current learning rate is 0.000590
+Epoch 45 training time cost: 2.7818 seconds
+Test results: SROCC=0.8617, KROCC=0.6810, PLCC=0.8932, RMSE=1.0848
+Epoch 46 averaged training loss: 2.7024
+The current learning rate is 0.000590
+Epoch 46 training time cost: 2.8457 seconds
+Test results: SROCC=0.8796, KROCC=0.6882, PLCC=0.8881, RMSE=1.1089
+Epoch 47 averaged training loss: 3.0107
+The current learning rate is 0.000590
+Epoch 47 training time cost: 2.8115 seconds
+Test results: SROCC=0.8593, KROCC=0.6774, PLCC=0.8928, RMSE=1.0865
+Epoch 48 averaged training loss: 2.7383
+The current learning rate is 0.000531
+Epoch 48 training time cost: 2.9378 seconds
+Test results: SROCC=0.9026, KROCC=0.7156, PLCC=0.9153, RMSE=0.9715
+Epoch 49 averaged training loss: 2.3332
+The current learning rate is 0.000531
+Epoch 49 training time cost: 2.7458 seconds
+Test results: SROCC=0.8334, KROCC=0.6262, PLCC=0.8783, RMSE=1.1536
+Epoch 50 averaged training loss: 3.5159
+The current learning rate is 0.000531
+Epoch 50 training time cost: 2.7567 seconds
+Test results: SROCC=0.8588, KROCC=0.6644, PLCC=0.8918, RMSE=1.0913
+['SJTU']
+The best Val results: SROCC=0.9084, KROCC=0.7300, PLCC=0.9228, RMSE=0.9294
+*************************************************************************************************************************
+*************************************************************************************************************************
+The mean val results: SROCC=0.9026, KROCC=0.7394, PLCC=0.9263, RMSE=0.9103
+*************************************************************************************************************************

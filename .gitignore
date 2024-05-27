@@ -1,4 +1,6 @@
-*/point_clouds
+*.ply
+*__pycache__
+*.zip
 */projections
 */projections_8
 */projections_16
@@ -6,8 +8,6 @@
 */projections_size_3
 */projections_size_4
 */projections_size_8
-*.zip
-*.ply
-*__pycache__
+*/ckpts
 *.pth
 */bag

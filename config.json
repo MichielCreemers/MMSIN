@@ -1,0 +1,18 @@
+{
+    "gpu": 0,
+    "num_epochs": 100,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "decay_rate": 0.0001,
+    "model": "nss1",
+    "projections_dirs" : ["SJTU/projections"],
+    
+    "mos_data_paths": ["SJTU/SJTU_MOS.csv"],
+    
+    "nss_features_paths" : ["SJTU/SJTU_NSS.csv"],
+    
+    "number_of_projections": 6,
+    "loss": "l2rank",
+    "datasets": ["SJTU"],
+    "k_fold_num": 5
+}

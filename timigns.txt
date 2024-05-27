@@ -1,0 +1,96 @@
+Natural scene statistics
+------------------------------
+Average time: 4.917770869731903
+Standard deviation: 2.0360901890523175
+Minimum time: 2.7729926109313965
+Maximum time:       3606405258179
+
+Projections
+--------------------------------------
+Average time: 0.6406234097480774
+Standard deviation: 0.1654698508897105
+Minimum time: 0.46198153495788574
+Maximum time: 0.936877965927124
+
+Inference
+---------------------------------------
+Average time: 0.01844505036231315
+Standard deviation: 0.08145887125626257
+Minimum time: 0.01026463508605957
+Maximum time: 0.8289909362792969
+
+Cross Dataset evaluation WPC->SJTU
+----------------------------------
+Results for dataset SJTU tested on model ckpts/WPC_300_epoch/['WPC']_1_best_model.pth, with SJTU scalers:
+SROCC: 0.4574
+KROCC: 0.3171
+PLCC: 0.4473
+RMSE: 0.2856
+Time taken for cross testing took: 15.9168 seconds.
+
+Results for dataset SJTU tested on model ckpts/WPC_300_epoch/['WPC']_1_best_model.pth, with WPC scalers:
+SROCC: 0.4852
+KROCC: 0.3368
+PLCC: 0.4693
+RMSE: 0.2429
+Time taken for cross testing took: 14.5130 seconds.
+
+Results for dataset SJTU tested on model ckpts/WPC_100_epoch/['WPC']_2_best_model.pth:
+SROCC: 0.4067
+KROCC: 0.2772
+PLCC: 0.4113
+RMSE: 0.2848
+Time taken for cross testing took: 14.9242 seconds.
+
+Results for dataset SJTU tested on model ckpts/['WPC']_0_6_best_model.pth:
+SROCC: 0.4471
+KROCC: 0.3078
+PLCC: 0.4661
+RMSE: 0.2548
+Time taken for cross testing took: 17.2580 seconds.
+-------------------------------------
+-------------------------------------
+Results for dataset SJTU tested on model ckpts/['WPC']_0_5_best_model.pth:
+SROCC: 0.4933
+KROCC: 0.3391
+PLCC: 0.5121
+RMSE: 0.2437
+Time taken for cross testing took: 16.9398 seconds.
+
+Results for dataset SJTU tested on model ckpts/['WPC']_0_1_best_model.pth:
+SROCC: 0.2535
+KROCC: 0.1706
+PLCC: 0.2662
+RMSE: 0.3515
+Time taken for cross testing took: 17.3992 seconds.
+
+Results for dataset WPC2 tested on model ckpts/['WPC']_0_6_best_model.pth:
+SROCC: 0.7803
+KROCC: 0.5736
+PLCC: 0.7876
+RMSE: 0.1550
+Time taken for cross testing took: 24.9537 seconds.
+
+-------------------------------------
+-------------------------------------
+
+Results for dataset WPC tested on model ckpts/WPC2_100_epoch.pth/['WPC2']_3_best_model.pth:
+SROCC: 0.2476
+KROCC: 0.1710
+PLCC: 0.3519
+RMSE: 61.3754
+Time taken for cross testing took: 39.2555 seconds.
+
+Results for dataset WPC2 tested on model ckpts/WPC_300_epoch/['WPC']_0_best_model.pth:
+SROCC: 0.3812
+KROCC: 0.2566
+PLCC: 0.3880
+RMSE: 0.2850
+Time taken for cross testing took: 22.3103 seconds.
+
+Results for dataset WPC2 tested on model ckpts/WPC_300_epoch/['WPC']_0_best_model.pth:
+SROCC: 0.5560
+KROCC: 0.3834
+PLCC: 0.5526
+RMSE: 0.1895
+Time taken for cross testing took: 22.0941 seconds.
