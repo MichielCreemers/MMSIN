@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python train_no_val.py >> logs/quick_test.log
+python train.py >> logs/quick_test.log

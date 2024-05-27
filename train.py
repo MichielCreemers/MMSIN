@@ -142,14 +142,14 @@ if __name__ == "__main__":
                                 datasets=datasets)
     
     # Split the dataset into training and tens sets (80% train & 20% test)
-    train_indices, test_indices = train_test_split(range(len(complete_dataset)), test_size=0.2, random_state=42)
+    # train_indices, test_indices = train_test_split(range(len(complete_dataset)), test_size=0.0, random_state=42)
     
-    train_dataset = Subset(complete_dataset, train_indices)
-    test_dataset = Subset(complete_dataset, test_indices)
+    # train_dataset = Subset(complete_dataset, train_indices)
+    # test_dataset = Subset(complete_dataset, test_indices)
     
     # Start kfold cross validation loop
     kf = KFold(n_splits=k_fold_num, shuffle=True, random_state=42)
-    for fold, (train_ids, val_ids) in enumerate(kf.split(train_dataset.indices)):
+    for fold, (train_ids, val_ids) in enumerate(kf.split(range(len(complete_dataset)))):
         
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         if torch.cuda.is_available():
@@ -169,8 +169,8 @@ if __name__ == "__main__":
         val_subset = Subset(val_dataset_clone, val_ids)
         
         # Initialize data loaders for current fold ---- IN OUT LOOP?????? __________!_!_____________!_!_!_______________!_!____________
-        train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=0)
-        val_loader = DataLoader(val_subset, batch_size=1, shuffle=False, drop_last=True, num_workers=0)
+        train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=0)
+        val_loader = DataLoader(val_subset, batch_size=1, shuffle=False, num_workers=0)
         
         # Initialize model, criterion, optimizer
         if args.model == "nss1":
@@ -190,11 +190,14 @@ if __name__ == "__main__":
         print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
 
         best_test_criterion = -1 
+        overall_best_test_criterion = -1
         best = np.zeros(4)
+        epoch_split=0
 
-        
         for epoch in range(num_epochs):
-
+            if epoch % 100 == 0:
+                best_test_criterion = -1
+                epoch_split += 1
             n_train = len(train_subset)
             n_val  = len(val_subset)
 
@@ -266,10 +269,12 @@ if __name__ == "__main__":
 
                 if test_SROCC > best_test_criterion:
                     print("Update best model using best_val_criterion ")
-                    torch.save(model.state_dict(), 'ckpts/' + str(datasets) + '_' + str(fold) + '_best_model.pth')
+                    torch.save(model.state_dict(), 'ckpts/' + str(datasets) + '_' + str(fold) + '_' + str(epoch_split)+'_best_model.pth')
                     # scio.savemat(trained_model_file+'.mat',{'y_pred':y_pred,'y_test':y_test})
-                    best[0:4] = [test_SROCC, test_KROCC, test_PLCC, test_RMSE]
                     best_test_criterion = test_SROCC  # update best val SROCC
+                    if test_SROCC > overall_best_test_criterion:
+                        best[0:4] = [test_SROCC, test_KROCC, test_PLCC, test_RMSE]
+                        overall_best_test_criterion = test_SROCC
 
                     print("Update the best Test results: SROCC={:.4f}, KROCC={:.4f}, PLCC={:.4f}, RMSE={:.4f}".format(test_SROCC, test_KROCC, test_PLCC, test_RMSE))
         print(datasets)

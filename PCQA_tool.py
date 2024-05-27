@@ -86,7 +86,7 @@ class ExampleWindow(ctk.CTk):
 
    
     def _assess_quality(self):
-        projections_folder = "test"
+        projections_folder = "PCQA_tool_projections"
         self.log_message('Generating projections')
         projections.make_projections(self.pc_file_edit.get(),projections_folder,4, 4, 2, 'default', False)
 
