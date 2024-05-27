@@ -137,7 +137,7 @@ class ExampleWindow(ctk.CTk):
                          "sphericity_gamma2"]
 
         features_df = pd.DataFrame([nss_features], columns=feature_names)
-        scaler_params = np.load('scaler_params.npy')
+        scaler_params = np.load('WPC/scaler_params.npy')
 
         self.log_message('Scaling NSS features')
 
