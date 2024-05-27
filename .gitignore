@@ -7,3 +7,7 @@
 */projections_size_4
 */projections_size_8
 *.zip
+*.ply
+*__pycache__
+*.pth
+*/bag
