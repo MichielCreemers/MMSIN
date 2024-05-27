@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ## Model Training
 In order to train your own model, the projections of the point clouds from the different datasets need to be downloaded from [here](). The unzipped folder should be put in the folder SJTU/WPC/WPC2.0 depending on the downloaded projections. The following structure should be obtainend
 
-```bash
+```
 SJTU-+-SJTU_MOS.csv
      |
      +-SJTU_NSS.csv
