@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import ttk
 import customtkinter as ctk
@@ -21,14 +22,13 @@ from utils.NSS import feature_extract, nss_functions, feature_functions
 from models.main_model import MM_NSSInet
 
 class ExampleWindow(ctk.CTk):
-   
     def __init__(self):
         super().__init__()
         self.title("3D Point Cloud Quality Assessment")
         self.geometry("800x1000")
         ctk.set_appearance_mode("dark")  # Dark mode
-        ctk.set_default_color_theme("blue")   # Blue theme
-        self.font=ctk.CTkFont(family='Helvetica', size=18)
+        ctk.set_default_color_theme("blue")  # Blue theme
+        self.font = ctk.CTkFont(family='Helvetica', size=18)
         self.setup_gui()
 
     def setup_gui(self):
@@ -40,7 +40,7 @@ class ExampleWindow(ctk.CTk):
         pc_file_label = ctk.CTkLabel(self, text="Point Cloud File:", font=self.font)
         pc_file_label.grid(row=0, column=0, padx=10, pady=10, sticky="e")
 
-        self.pc_file_edit = ctk.CTkEntry(self, width=120, **frame_style, font= self.font)
+        self.pc_file_edit = ctk.CTkEntry(self, width=120, **frame_style, font=self.font)
         self.pc_file_edit.grid(row=0, column=1, padx=10, pady=10, sticky="we")
 
         pc_file_button = ctk.CTkButton(self, text="Browse", command=self.on_pc_button, **frame_style, font=self.font)
@@ -50,53 +50,60 @@ class ExampleWindow(ctk.CTk):
         model_file_label = ctk.CTkLabel(self, text="Model File:", font=self.font)
         model_file_label.grid(row=1, column=0, padx=10, pady=10, sticky="e")
 
-        self.model_file_edit = ctk.CTkEntry(self, width=120, **frame_style, font=self.font)
-        self.model_file_edit.grid(row=1, column=1, padx=10, pady=10, sticky="we")
+        model_files = self.get_model_files("pretrained_models")
 
-        model_file_button = ctk.CTkButton(self, text="Browse", command=self.on_model_button, **frame_style, font=self.font)
-        model_file_button.grid(row=1, column=2, padx=10, pady=10)
+        # Ensure the list is not empty
+        if not model_files:
+            model_files = ["No model files found"]
+
+        self.model_file_dropdown = ctk.CTkOptionMenu(self, values=model_files, **frame_style, font=self.font)
+        self.model_file_dropdown.grid(row=1, column=1, padx=10, pady=10, sticky="we")
 
         # Calculate Button
         calculate_button = ctk.CTkButton(self, text="Calculate Quality", command=self.on_ok, **frame_style, font=self.font)
         calculate_button.grid(row=2, column=0, columnspan=3, padx=20, pady=20)
 
-        self.log_label = ctk.CTkLabel(self, text="", height = 50, wraplength=1000, **frame_style, font=self.font)
+        self.log_label = ctk.CTkLabel(self, text="", height=50, wraplength=1000, **frame_style, font=self.font)
         self.log_label.grid(row=3, column=0, columnspan=3, padx=10, pady=10, sticky="we")
 
-        
-        
+    def get_model_files(self, directory):
+        try:
+            # List all .pth files in the given directory
+            files = [f for f in os.listdir(directory) if f.endswith('.pth')]
+            return files
+        except Exception as e:
+            print(f"Error accessing directory: {e}")
+            return []
+
     def on_pc_button(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Point Cloud Files", "*.obj *.ply *.stl")])
+        file_path = filedialog.askopenfilename(filetypes=[("Point Cloud Files", "*.ply")])
         if file_path:
             self.pc_file_edit.delete(0, ctk.END)
             self.pc_file_edit.insert(0, file_path)
-            
-          
-            
-
-    def on_model_button(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Model Files", "*.pth")])
-        if file_path:
-            self.model_file_edit.delete(0, ctk.END)
-            self.model_file_edit.insert(0, file_path)
 
     def log_message(self, message):
         self.log_label.configure(text=message)
         self.log_label.update()
 
-   
     def _assess_quality(self):
         projections_folder = "PCQA_tool_projections"
         self.log_message('Generating projections')
-        projections.make_projections(self.pc_file_edit.get(),projections_folder,4, 4, 2, 'default', False)
+        if(self.pc_file_edit.get() == ""):
+            self.log_message("no ply selected")
+            return
+        if(self.model_file_dropdown == "No model files found"):
+            self.log_message("no model selected")
+            return
+
+        projections.make_projections(self.pc_file_edit.get(), projections_folder, 4, 4, 2, 'default', False)
 
         images = glob.glob(f'{projections_folder}/*.png')
 
         first_image = Image.open(images[0])
         self.photo = ImageTk.PhotoImage(first_image)
-        self.point_cloud_canvas = ctk.CTkCanvas(self, bg="gray90", width= 700, height=700)
+        self.point_cloud_canvas = ctk.CTkCanvas(self, bg="gray90", width=700, height=700)
         self.point_cloud_canvas.grid(row=4, column=0, columnspan=3, padx=20, pady=20)
-        self.point_cloud_canvas.delete("all") # Clear the canvas
+        self.point_cloud_canvas.delete("all")  # Clear the canvas
         self.point_cloud_canvas.create_image(0, 0, image=self.photo, anchor="nw")
 
         self.log_message('Transforming projections')
@@ -113,8 +120,6 @@ class ExampleWindow(ctk.CTk):
             read_image = Image.open(images[i]).convert('RGB')
             read_image = transformation(read_image)
             transformed_imgs[i] = read_image
-
-
 
         self.log_message('Generating NSS features')
 
@@ -137,7 +142,15 @@ class ExampleWindow(ctk.CTk):
                          "sphericity_gamma2"]
 
         features_df = pd.DataFrame([nss_features], columns=feature_names)
-        scaler_params = np.load('WPC/scaler_params.npy')
+        selected_model = self.model_file_dropdown.get()
+        if (selected_model == "WPC.pth"):
+            scaler_params = np.load('WPC/scaler_params.npy')
+        elif(selected_model == "WPC2.pth"):
+            scaler_params = np.load('WPC2/scaler_params.npy')
+        elif(selected_model == "SJTU.pth"):
+            scaler_params = np.load('SJTU/scaler_params.npy')
+        else:
+            scaler_params = np.load('WPC/scaler_params.npy')
 
         self.log_message('Scaling NSS features')
 
@@ -150,7 +163,7 @@ class ExampleWindow(ctk.CTk):
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         model = MM_NSSInet()
-        model.load_state_dict(torch.load(self.model_file_edit.get()))
+        model.load_state_dict(torch.load(os.path.join("pretrained_models", self.model_file_dropdown.get())))
         model = model.to(device)
         model.eval()
 
@@ -165,7 +178,7 @@ class ExampleWindow(ctk.CTk):
         self.log_message('Predicted quality score: ' + str(score))
 
     def on_ok(self):
-        self._assess_quality()  
+        self._assess_quality()
 
 if __name__ == "__main__":
     app = ExampleWindow()
