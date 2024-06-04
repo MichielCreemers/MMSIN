@@ -101,7 +101,7 @@ class ExampleWindow(ctk.CTk):
 
         first_image = Image.open(images[0])
         self.photo = ImageTk.PhotoImage(first_image)
-        self.point_cloud_canvas = ctk.CTkCanvas(self, bg="gray90", width=700, height=700)
+        self.point_cloud_canvas = ctk.CTkCanvas(self, bg="gray90", width=0.9*self.log_label.winfo_width(), height=0.9*self.log_label.winfo_width())
         self.point_cloud_canvas.grid(row=4, column=0, columnspan=3, padx=20, pady=20)
         self.point_cloud_canvas.delete("all")  # Clear the canvas
         self.point_cloud_canvas.create_image(0, 0, image=self.photo, anchor="nw")

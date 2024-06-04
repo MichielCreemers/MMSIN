@@ -71,7 +71,7 @@ After the wanted parameters are chosen, the model can be trained by running
 ```
 The outputs will be saved in a log file that is specified in train.sh, and the best model will be saved in the ckpts folder.
 
-
+![Demo of Tool](imgs/demo.gif)
 
 
 
