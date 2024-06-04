@@ -77,7 +77,7 @@ Pre-trained models can be downloaded here: [pretrained_models](https://1drv.ms/f
 ## PCQA Tool
 The code also contains a point cloud quality assessment tool. In order to use it, you should add your own model or one of the pretrained models. We recommend using the ones provided in the "tool_models" folder. In the tool you are asked to select a point-cloud, pretrained model, and then you can train train the model. A demo is showed below
 
-![Demo of Tool](images/demo.gif)
+![Demo of Tool](imgs/demo.gif)
 
 
 
