@@ -25,7 +25,7 @@ To run the code itself, several packages need to be installed. An overview is gi
 pip install -r requirements.txt
 ```
 ## Model Training
-In order to train your own model, the projections of the point clouds from the different datasets need to be downloaded from [here](https://1drv.ms/f/c/fe05f8cee0ae7fd1/EjweUBYenu5PiLDCR7-hLCEBvrNxRWgaAY6sk4LQ20jQZQ?e=5DghCg). The unzipped folder should be put in the folder SJTU/WPC/WPC2.0 depending on the downloaded projections. The following structure should be obtainend
+In order to train your own model, the projections of the point clouds from the different datasets need to be downloaded from [here](https://1drv.ms/f/c/fe05f8cee0ae7fd1/EjweUBYenu5PiLDCR7-hLCEBmQiSBKQ-v6Fx2z-d3FwwVA?e=Yx3aSV). The unzipped folder should be put in the folder SJTU/WPC/WPC2.0 depending on the downloaded projections. The following structure should be obtainend
 
 ```
 SJTU-+-SJTU_MOS.csv
