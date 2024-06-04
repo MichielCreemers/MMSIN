@@ -71,7 +71,10 @@ After the wanted parameters are chosen, the model can be trained by running
 ```
 The outputs will be saved in a log file that is specified in train.sh, and the best model will be saved in the ckpts folder.
 
-![Demo of Tool](imgs/demo.gif)
+## Using pre-trained models
+Pre-trained models can be downloaded here: [pretrained_models](https://1drv.ms/f/c/fe05f8cee0ae7fd1/Ep8kGgx7FgRGlclDxHKcvH8B6MyqMCQXQF01pAAvP7c3uw?e=oyBfhe)
+
+
 
 
 
