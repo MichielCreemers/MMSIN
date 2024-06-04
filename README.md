@@ -74,6 +74,10 @@ The outputs will be saved in a log file that is specified in train.sh, and the b
 ## Using pre-trained models
 Pre-trained models can be downloaded here: [pretrained_models](https://1drv.ms/f/c/fe05f8cee0ae7fd1/Ep8kGgx7FgRGlclDxHKcvH8B6MyqMCQXQF01pAAvP7c3uw?e=oyBfhe)
 
+## PCQA Tool
+The code also contains a point cloud quality assessment tool. In order to use it, you should add your own model or one of the pretrained models. We recommend using the ones provided in the "tool_models" folder. In the tool you are asked to select a point-cloud, pretrained model, and then you can train train the model. A demo is showed below
+
+![Demo of Tool](images/demo.gif)
 
 
 
